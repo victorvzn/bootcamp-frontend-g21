@@ -9,6 +9,12 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   background-color: hsl(30, 38%, 92%);
+
+  display: flex; /* Flexbox */
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
 }
 
 main {
@@ -16,6 +22,7 @@ main {
 
   width: 650px;
   height: 400px;
+
 }
 
 .photo {
