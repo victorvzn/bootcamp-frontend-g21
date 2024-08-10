@@ -10,3 +10,22 @@ body {
   font-size: 14px;
   background-color: hsl(30, 38%, 92%);
 }
+
+main {
+  border: 3px solid red;
+
+  width: 650px;
+  height: 400px;
+}
+
+.photo {
+  border: 5px solid green;
+
+  width: 350px;
+}
+
+.content {
+  border: 5px solid blue;
+
+  width: 300px;
+}
