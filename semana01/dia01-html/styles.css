@@ -20,16 +20,19 @@ body {
 }
 
 main {
-  border: 3px solid red;
+  /* border: 3px solid red; */
 
   width: 650px;
-  height: 400px;
+  min-height: 400px;
 
   display: flex;
+
+  border-radius: 14px;
+  overflow: hidden;
 }
 
 .photo {
-  border: 5px solid green;
+  /* border: 5px solid green; */
 
   width: 350px;
 
@@ -39,7 +42,7 @@ main {
 }
 
 .content {
-  border: 5px solid blue;
+  /* border: 5px solid blue; */
 
   width: 300px;
 
@@ -77,4 +80,41 @@ main {
   font-weight: 500;
   line-height: 1.5;
   color: hsl(228, 12%, 48%);
+  
+  /* text-align: justify; */
+}
+
+.content div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.content span {
+  font-family: "Fraunces", serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: hsl(158, 36%, 37%);
+}
+
+.content s {
+  color: hsl(228, 12%, 48%);
+}
+
+.content button {
+  border: 0;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  background-color: hsl(158, 36%, 37%);
+  color: hsl(0, 0%, 100%);
+
+  padding: 14px;
+
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+
+  cursor: pointer;
+  border-radius: 7px;
 }
