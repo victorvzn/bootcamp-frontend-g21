@@ -6,9 +6,11 @@ font-family: "Montserrat", sans-serif;
 */
 
 body {
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
+  margin: 0;
+
   background-color: hsl(30, 38%, 92%);
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
 
   display: flex; /* Flexbox */
   justify-content: center;
@@ -23,12 +25,17 @@ main {
   width: 650px;
   height: 400px;
 
+  display: flex;
 }
 
 .photo {
   border: 5px solid green;
 
   width: 350px;
+
+  background-image: url(./images/image-product-desktop.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .content {
