@@ -42,7 +42,8 @@ label textarea {
 }
 
 .row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
@@ -54,11 +55,6 @@ label textarea {
   padding: 16px;
   margin-top: 8px;
   border-radius: 8px;
-}
-
-.query-type-row {
-  display: flex;
-  gap: 16px;
 }
 
 input,
