@@ -191,6 +191,59 @@ img {
 
 /* TODO: COLLABORATION SECTION - Maquetar esta sección */
 
+.collaboration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem; /* 4rem = 4 x 16px = 64px */
+
+  background-color: hsl(218, 28%, 13%);
+
+  padding-top: 8rem;
+}
+
+ /* SE APLICA A DISPOSITIVOS COMO DESKTOP */
+ @media (min-width: 1200px) {
+  .collaboration {
+    flex-direction: row;
+  }
+ }
+
+/* .collaboration img {
+  border: 1px solid red;
+} */
+
+.how_works {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  width: min(100% - 3rem, 480px);
+}
+
+.how_works__title {
+  font-family: "Raleway", system-ui;
+  font-weight: 700;
+  font-size: 2.8rem;
+}
+
+.how_works__text {
+  font-family: "Open Sans", sans-serif;
+}
+
+.how_works__button {
+  color: hsl(176, 68%, 64%);
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  border-bottom: 1px solid hsl(176, 68%, 64%);
+  width: 10.8rem;
+  padding-bottom: 0.5rem;
+}
+
 /* TESTIMONIALS SECTION  */
 
 /* EARLY-ACCESS SECTION  */
