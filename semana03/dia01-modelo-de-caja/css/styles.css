@@ -148,7 +148,42 @@ img {
 
 /* FEATURES SECTION  */
 
+.features {
+  /* border: 1px solid blue; */
 
+  background-color: hsl(218, 28%, 13%);
+
+  display: grid;
+  grid-template-columns: 340px;
+  justify-content: center;
+  gap: 5rem;
+}
+
+ /* SE APLICA A DISPOSITIVOS COMO DESKTOP */
+@media (min-width: 1200px) {
+  .features {
+    grid-template-columns: 340px 340px;
+  }
+}
+
+.feature {
+  /* border: 1px solid red; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* 16px x 1 = 1rem = 16px */
+  /* 16px x 2 = 2rem = 32px */
+}
+
+.feature__title {
+  font-family: "Raleway", system-ui;
+}
+
+.feature__text {
+  font-family: "Raleway", system-ui;
+  text-align: center;
+}
 
 /* TODO: COLLABORATION SECTION - Maquetar esta sección */
 
