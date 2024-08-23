@@ -246,6 +246,60 @@ img {
 
 /* TESTIMONIALS SECTION  */
 
+.testimonials {
+  /* border: 1px solid red; */
+
+  background-color: hsl(218, 28%, 13%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  padding-top: 8rem;
+  padding-bottom: 10rem;
+}
+
+@media (min-width: 1200px) {
+  .testimonials {
+    flex-direction: row;
+  }
+}
+
+.testimonial {
+  width: 23rem; /* 23rem = 14px x 23 = 322px */
+  /* padding: TOP RIGHT BOTTOM LEFT; */
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 0.5rem solid hsla(215, 52%, 9%, 0.3);
+  background-color: hsl(219, 30%, 18%);
+}
+
+.testimonial__text {
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.testimonial__profile {
+  display: flex;
+  gap: .5rem;
+
+  font-size: .9rem;
+}
+
+.testimonial__profile img {
+  border-radius: 50%;
+}
+
+.testimonial__profile h4 {
+  font-weight: 700;
+}
+
+.testimonial__profile h5 {
+  font-weight: 400;
+}
+
 /* EARLY-ACCESS SECTION  */
 
 /* FOOTER SECTION  */
