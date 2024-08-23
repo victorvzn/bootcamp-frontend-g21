@@ -247,7 +247,7 @@ img {
 /* TESTIMONIALS SECTION  */
 
 .testimonials {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   background-color: hsl(218, 28%, 13%);
 
@@ -274,14 +274,6 @@ img {
   border-radius: 0.5rem;
   border: 0.5rem solid hsla(215, 52%, 9%, 0.3);
   background-color: hsl(219, 30%, 18%);
-
-  position: relative;
-}
-
-.testimonial--quote .testimonial__quote {
-  position: absolute;
-  top: -10px;
-  left: -10px;
 }
 
 .testimonial__text {
@@ -309,6 +301,8 @@ img {
 }
 
 /* EARLY-ACCESS SECTION  */
+
+
 
 /* FOOTER SECTION  */
 
