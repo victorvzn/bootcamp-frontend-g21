@@ -50,3 +50,21 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+/* UTILS */
+
+.wrapper {
+  width: min(100% - 3rem, 1200px);
+
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+/* HEADER */
+
+/* GALLERY */
+
+/* PRODUCT */
