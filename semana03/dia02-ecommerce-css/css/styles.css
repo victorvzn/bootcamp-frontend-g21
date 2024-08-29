@@ -206,7 +206,17 @@ a {
 
   display: flex;
   gap: .5rem;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media(min-width: 768px) {
+  .product__price {
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
 }
 
 .product__wrapper {
@@ -241,11 +251,18 @@ a {
 
 .product__form {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
 
   margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .product__form {
+    flex-direction: row;
+  }
 }
 
 .product__quantity {
