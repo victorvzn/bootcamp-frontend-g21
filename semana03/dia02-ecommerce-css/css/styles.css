@@ -81,15 +81,32 @@ a {
   justify-content: space-between;
   align-items: center;
 
-  padding: 1.5rem 0;
+  padding: 1.5rem 1rem;
   border-bottom: 1px solid hsl(223, 64%, 98%);
 }
 
 .header__wrapper {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
+
+@media (min-width: 768px) {
+  .header__wrapper {
+    gap: 2rem;
+  }
+}
+
+.header__menu {
+  padding-top: 0.3rem;
+}
+
+@media (min-width: 768px) {
+  .header__menu {
+    display: none;
+  }
+}
+
 
 .header__links {
   display: none;
