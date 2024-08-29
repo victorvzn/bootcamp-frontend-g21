@@ -107,9 +107,35 @@ a {
   }
 }
 
+.header-menu-checkbox {
+  display: none;
+}
+
+.header__links--menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  
+  background-color: var(--neutral-white);
+  /* background-color: gray; */
+
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 1.5rem 1rem;
+  font-weight: var(--font-weight-bold);
+
+  opacity: 0;
+}
+
+input[type=checkbox]:checked ~ .header__links--menu {
+  opacity: 1;
+}
 
 .header__links {
-  display: none;
+  /* display: none; */
   font-size: .9rem;
   gap: 1rem;
   color: var(--neutral-dark-grayish-blue);
