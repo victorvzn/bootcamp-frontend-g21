@@ -270,6 +270,14 @@ a {
 
   border-radius: .5rem;
   overflow: hidden;
+
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .product__quantity {
+    max-width: 160px;
+  }
 }
 
 .product__quantity button,
@@ -290,6 +298,8 @@ a {
   justify-content: center;
   font-weight: var(--font-weight-bold);
   font-size: 1.1rem;
+
+  flex-grow: 1;
 }
 
 .product__add-to-cart {
