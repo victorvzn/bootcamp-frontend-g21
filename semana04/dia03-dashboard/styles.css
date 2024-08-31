@@ -63,6 +63,12 @@ body:has(.sidebar--open) {
   grid-area: sidebar2;
 
   padding: 1rem;
+
+  display: none;
+}
+
+.settings--open {
+  display: block;
 }
 
 body:has(.settings--open) {
