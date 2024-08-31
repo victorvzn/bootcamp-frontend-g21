@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
+/* TODO: Terminar el diseño con RWD
+
+1. Ocultar el menu de navegación en mobile
+2. La lista de stacks se vean solo dos columnas y multiples filas en mobile.
+3. Hacer que la piramide de habilidades esté abajo de la sección mis habilidades en mobile
+4. Hacer que los proyectos se vean en una sola línea en mobile.
+*/
+
 /* VARIABLES */
 
 :root {
