@@ -359,3 +359,54 @@ a {
 }
 
 /* TODO: Terminar el cover de la imagen */
+
+.project-item {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  border: 8px solid var(--primary-color-gold);
+}
+
+.project-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  opacity: 0;
+  padding: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  transition: all ease .3s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  & h4 {
+    font-size: 3rem;
+  } 
+
+  & p {
+    font-size: 1rem;
+    font-weight: var(--font-weight-regular);
+  } 
+
+  & div {
+    display: flex;
+    gap: 3rem;
+    
+    padding: 3rem 0;
+    
+    justify-content: center;
+    align-items: center;  
+  }
+  
+  & div svg {
+    fill: var(--primary-color-white);
+  }
+}
