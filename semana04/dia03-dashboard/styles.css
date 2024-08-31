@@ -1,8 +1,8 @@
 :root {
-  --bg-1: red;
-  --bg-2: blue;
-  --bg-3: green;
-  --bg-4: orange;
+  --bg-1: #A0C49D;
+  --bg-2: #C4D7B2;
+  --bg-3: #E1ECC8;
+  --bg-4: #F7FFE5;
 }
 
 /* RESET */
@@ -16,13 +16,17 @@ body {
   height: 100vh;
 
   display: grid;
-  grid-template-columns: 300px 1fr 100px;
+  grid-template-columns: var(--sidebarWidth, 100px) 1fr var(--settingsWidth, 0px);
   grid-template-rows: 60px 1fr;
 
   grid-template-areas:
     "sidebar header header"
     "sidebar main   sidebar2"
   ;
+}
+
+.hidden {
+  display: none;
 }
 
 .header {
@@ -45,12 +49,24 @@ body {
   background-color: var(--bg-2);
 
   grid-area: sidebar;
+
+  padding: 1rem;
+}
+
+body:has(.sidebar--open) {
+  --sidebarWidth: 300px;
 }
 
 .settings {
   background-color: var(--bg-2);
 
   grid-area: sidebar2;
+
+  padding: 1rem;
+}
+
+body:has(.settings--open) {
+  --settingsWidth: 200px;
 }
 
 .main {
@@ -77,6 +93,11 @@ body {
   background-color: var(--bg-4);
 
   border-radius: .5rem;
+
+  display: grid;
+  place-content: center;
+
+  font-size: 2rem;
 }
 
 .card:nth-child(1) {
