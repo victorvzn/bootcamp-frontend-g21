@@ -1,0 +1,40 @@
+:root {
+  --bg-1: red;
+  --bg-2: blue;
+  --bg-3: green;
+  --bg-4: orange;
+}
+
+/* RESET */
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 300px 1f;
+}
+
+.header {
+  background-color: var(--bg-1);
+}
+
+.sidebar {
+  background-color: var(--bg-2);
+}
+
+.settings {
+  background-color: var(--bg-2);
+}
+
+.main {
+  background-color: var(--bg-3);
+}
+
+.card {
+  background-color: var(--bg-4);
+}
