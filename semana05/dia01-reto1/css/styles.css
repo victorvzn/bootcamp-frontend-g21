@@ -34,6 +34,47 @@ font-family: "Hanken Grotesk", sans-serif;
   --neutral-dark-gray-blue: hsl(224, 30%, 27%);
 }
 
-body {
-  background-color: #ddeeaa;
+/* GENERALES */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+html {
+  font-size: var(--font-size);
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--neutral-pale-blue);
+
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.summary {
+  background-color: var(--neutral-white);
+  display: flex;
+  flex-direction: column;
+}
+
+.result {
+  /* border: 1px solid red; */
+
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 0 0 1rem 1rem;
+  background: linear-gradient(
+    0deg,
+    hsl(241, 81%, 54%) 0%,
+    hsl(252, 100%, 67%) 100%
+  );
+}
+
+/*  */
+
