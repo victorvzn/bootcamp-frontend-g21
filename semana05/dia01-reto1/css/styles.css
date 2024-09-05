@@ -55,13 +55,31 @@ body {
   display: flex;
   justify-content: center;
   align-items: start;
+
+  @media (width > 768px) {
+    align-items: center;
+  }
 }
 
 .summary {
   background-color: var(--neutral-white);
   display: flex;
   flex-direction: column;
+  
+  @media (width > 768px) {
+    flex-direction: row;
+    border-radius: 1rem;
+  }
 }
+
+/*
+576px  -> pantallas pequeñas (celulares)
+768px  -> pantallas pequeñas (tablets y celulares)
+992px  -> pantallas medianas (Desktop)
+1200px -> pantallas grandes (Desktops, TVs)
+*/
+
+
 
 .result {
   /* border: 1px solid red; */
@@ -80,6 +98,10 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+
+  @media (width > 768px) {
+    border-radius: 1rem;
+  }
 }
 
 .result__subtitle {
@@ -130,8 +152,6 @@ body {
   color: var(--neutral-light-lavender);
   text-align: center;
 }
-
-/*  */
 
 .summary-list {
   /* border: 1px solid red; */
