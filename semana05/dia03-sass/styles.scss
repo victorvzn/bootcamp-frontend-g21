@@ -1,5 +1,10 @@
 $primary-color: #FFA559;
 
+$card-text: #333333;
+$card-bg: #e8e8e8;
+$card-border-color: #454545;
+$card-border-radius: 6px;
+
 body {
   background-color: $primary-color;
   color: blue;
@@ -7,5 +12,30 @@ body {
 }
 
 .card {
-  
+  background-color: $card-bg;
+  border: 2px solid $card-border-color;
+  border-radius: $card-border-radius;
+  text-align: left;
+  color: $card-text;
+  // border: 1px solid red;
+
+  &__header {
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid $card-border-color;
+  }
+
+  &__body {
+    padding: 2rem 1.5rem;
+  }
+
+  &--success {
+    background-color: #ddeeaa;
+  }
 }
+
+// .card__header {
+//   // border: 1px solid red;
+//   color: $card-text;
+//   text-align: left;
+//   padding: 1rem 1.5rem;
+// }
