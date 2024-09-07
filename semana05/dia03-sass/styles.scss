@@ -1,4 +1,11 @@
+$primary-color: #FFA559;
+
 body {
-  background-color: red;
+  background-color: $primary-color;
   color: blue;
+  text-align: center;
+}
+
+.card {
+  
 }
