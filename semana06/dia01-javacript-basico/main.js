@@ -290,3 +290,83 @@ if (edadPersona >= 18) {
 // 4. Retornar true si un numero es primo sino devolver false
 //    Pista: un numero primo es divisible por sí mismo y por 1
 // 5. Devolver un valor que se incremente de dos en dos y devuelva los menores a 10
+
+// FUNCIONES (Son bloques de código que podemos reutlizar)
+
+// Declaración
+function nombreDeLaFuncion() {
+  // Cuerpo de la función y aquí va la lógica a ejecutar y reutilizar
+}
+
+// Ejecutar, aquí estamos llamando a la función
+nombreDeLaFuncion()
+nombreDeLaFuncion()
+
+// Funciones sin parámetros
+
+function imprimirMiNombre() {
+  console.log('Hola soy Victor')
+  console.log('Y soy Frontend')
+}
+
+imprimirMiNombre()
+imprimirMiNombre()
+
+// Funciones con parámetros y valores por defecto
+
+function imprimirUnNombre(nombre = 'Anónimo') {
+  // if (nombre === undefined) {
+  //   nombre = 'Anónimo'
+  // }
+
+  console.log('Hola soy ' + nombre)
+}
+
+imprimirUnNombre()
+imprimirUnNombre('Victor')
+
+function imprimirNombreYApellido(nombre, apellido, edad) {
+  // console.log('Hola soy ' + nombre + ' ' + apellido + ' y tengo ' + edad + ' años.')
+  console.log(`Hola soy ${nombre} ${apellido} y tengo ${edad} años`)
+}
+
+imprimirNombreYApellido() // Hola soy undefined undefined y tengo undefined años.
+imprimirNombreYApellido('Victor', 'Villazón', '38')
+
+// EJERCICIOS
+
+// 1. Usando funciones determinar si la edad de una persona es mayor de edad o menor de edad mostrando 'Mayor de edad' o 'Menor de edad.
+// 2. Retornar true si un numero es primo sino devolver false
+// Pista: un numero primo es divisible por sí mismo y por 1
+
+
+// FUNCIONES SIN RETORNO
+
+function esMayorOMenorDeEdad(edad) {
+  if (edad >= 18) {
+    console.log('Mayor de edad')
+  } else {
+    console.log('Menor de edad')
+  }
+}
+
+esMayorOMenorDeEdad(38)
+esMayorOMenorDeEdad(8)
+esMayorOMenorDeEdad(3)
+
+// FUNCIONES CON RETORNO
+
+function esMayorOMenorDeEdadConRetorno(edad) {
+  if (edad >= 18) {
+    return 'Mayor de edad'
+  } else {
+    return 'Menor de edad'
+  }
+}
+
+const resultado = esMayorOMenorDeEdadConRetorno(15)
+
+console.log('Resultado:', resultado)
+
+console.log(esMayorOMenorDeEdadConRetorno(25)) // 'Mayor de edad'
+console.log(esMayorOMenorDeEdadConRetorno(12)) // 'Mayor de edad'
