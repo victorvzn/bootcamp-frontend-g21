@@ -299,3 +299,38 @@ console.log(nuevoObjetoSinColisiones.cliente.nombre) // Alessandro
 console.log(Object.keys(producto)) // Obtenemos solo las claves (keys) del objeto dentro de un arreglo de cadenas.
 console.log(Object.values(producto)) // Obtenemos solo los values (values) del objeto dentro de un arreglo de cadenas.
 console.log(Object.entries(producto)) // Convertimos un objeto en un arreglo
+
+// EJEMPLO FINAL CON OBJETOS
+
+const hero = 'Victor'
+
+if (hero === 'Batman') {
+  console.log('Hola soy Bruce')
+} else if (hero === 'Spiderman') {
+  console.log('Hola soy Peter')
+} else if (hero === 'Ironman') {
+  console.log('Hola soy Tony')
+} else {
+  console.log('No soy un heroe 😒')
+}
+
+const SUPER_HEROS = {
+  'Batman': 'Hola soy Bruce',
+  'Spiderman': 'Hola soy Peter',
+  'Ironman': 'Hola soy Tony',
+}
+
+if (!SUPER_HEROS[hero]) {
+  console.log('No soy un heroe 😒')
+} else {
+  console.log(SUPER_HEROS[hero])
+}
+
+console.log(SUPER_HEROS[hero] ?? 'No soy un heroe 😉')
+
+
+
+// TODO: Desarrollar 1 reto del siguiente link para mañana
+// TODO: Desarrollar 3 retos más del siguiente link para el próximo miércoles
+
+// https://2021.adventjs.dev/challenges
