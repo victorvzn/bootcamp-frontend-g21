@@ -154,3 +154,60 @@ console.log(sumatoria)
 
 // OBJETOS
 
+/*
+  {
+    KEY1: VALUE1,
+    KEY2: VALUE2,
+    KEY3: VALUE3,
+  }
+*/
+
+const miObjetoVacio = {}
+
+const miObjeto = {
+  nombre: 'Victor',
+  apellido: 'Villazón',
+  colorFavorito: 'azúl',
+  'mi edad': 38,
+  coloresFavoritos: ['rosado', 'rojo', 'azúl'],
+  cursos: [
+    {
+      id: 1,
+      nombre: 'Matemática',
+      nota: 13
+    },
+    {
+      id: 2,
+      nombre: 'Algoritmos',
+      nota: 20
+    }
+  ],
+  devolverCursosAprobados: function() { // Función anónima
+    return this.cursos.filter(function (curso) {
+      return curso.nota > 13
+    })
+  }
+}
+
+console.log(miObjetoVacio)
+console.log(miObjeto)
+
+// LEER LOS CAMPOS DE UN OBJETO (notación de punto y de corchete)
+
+console.log(miObjeto.nombre) // Victor
+console.log(miObjeto.apellido) // Villazón
+console.log(miObjeto.edad) // undefined
+
+// console.log(miObjeto.mi edad) // BAD ❌ - Uncaught SyntaxError: missing ) after argument list
+console.log(miObjeto['mi edad']) // OK ✅
+
+console.log(miObjeto.coloresFavoritos)
+console.log(miObjeto.coloresFavoritos[2])
+
+console.log(miObjeto.cursos) // Array
+console.log(miObjeto.cursos[1]) // {id: 2, nombre: 'Algoritmos', nota: 20}
+console.log(miObjeto.cursos[1].nota) // 20
+console.log(miObjeto.cursos[1]['nota']) // 20
+
+console.log(miObjeto.devolverCursosAprobados) // ƒ()
+console.log(miObjeto.devolverCursosAprobados()) // [{ id: 2, nombre: 'Algoritmos', nota: 20 }]
