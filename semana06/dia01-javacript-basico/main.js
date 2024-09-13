@@ -64,6 +64,8 @@ console.log(typeof apellido)
 
 // var -> ES5 (Forma de declarar una variable pero no es recomendado su uso, la declaración es a nivel de la función) ❌
 
+var minombre = 'hola'
+
 // CONST -> ES6 (El uso de const es lo recomendado) ✅
 
 const edad = 55 // Es obligatorio inicializarlo
@@ -73,7 +75,7 @@ const PI = 3.14
 const empresa = 'JS'
 const esMayorDeEdad = false
 
-// edad = 90 // Uncaught TypeError: Assignment to constant variable.
+// edad = 90 // Uncaught TypeError: Assignment to constant variable. ❌
 
 console.log(edad)
 
@@ -81,7 +83,7 @@ console.log(edad)
 
 let edad2 = 35 // No es obligatorio inicializarlo
 
-edad2 = 39 // estamos reasignando un valor numérico
+edad2 = 39 // estamos reasignando un valor numérico/string/boolean/etc
 console.log(typeof edad2)
 edad2 = "victor"
 console.log(typeof edad2)
@@ -137,7 +139,7 @@ console.log(true && false) // AND
 console.log(true || false) // OR
 console.log(!true) // NEGACIÓN
 
-// OPERADORE DE CADENA (CONCATENACIÓN)
+// OPERADORES DE CADENA (CONCATENACIÓN)
 
 const saludo = 'Hola, '
 const nombreCompleto = 'Victor' + ' ' + 'Villazón'
@@ -369,4 +371,4 @@ const resultado = esMayorOMenorDeEdadConRetorno(15)
 console.log('Resultado:', resultado)
 
 console.log(esMayorOMenorDeEdadConRetorno(25)) // 'Mayor de edad'
-console.log(esMayorOMenorDeEdadConRetorno(12)) // 'Mayor de edad'
+console.log(esMayorOMenorDeEdadConRetorno(12)) // 'Menor de edad'
