@@ -211,3 +211,18 @@ console.log(miObjeto.cursos[1]['nota']) // 20
 
 console.log(miObjeto.devolverCursosAprobados) // ƒ()
 console.log(miObjeto.devolverCursosAprobados()) // [{ id: 2, nombre: 'Algoritmos', nota: 20 }]
+
+// ELIMINAR PROPIEDADES DE UN OBJETO
+
+console.log(miObjeto)
+delete miObjeto.colorFavorito
+delete miObjeto.cursos
+delete miObjeto["mi edad"]
+console.log(miObjeto)
+
+// INSERTAR UN NUEVA PROPIEDADE A UN OBJETO
+
+miObjeto.platilloFavorito = 'Ceviche de Conchas Negras'
+miObjeto['juegos favoritos'] = ['Crash Team Racing', 'Mario', 'Minecraft']
+
+console.log(miObjeto)
