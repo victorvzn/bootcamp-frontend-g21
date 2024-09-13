@@ -120,5 +120,37 @@ const ordenandoLanguages = [...languages].sort() // Mutando el arreglo original
 console.log(ordenandoLanguages)
 console.log(languages)
 
-// Método FOREACH, nos ayuda a correrer un arreglo sin tener ningun retorno de datos
+// Método FOREACH, nos ayuda a recorrer un arreglo sin tener ningun retorno de datos
+
+const miArreglo = []
+
+languages.forEach(function (language) {
+  miArreglo.push('El mejor: ' + language)
+})
+
+console.log(miArreglo)
+
+// Método REDUCE, nos ayuda a acumular los valores de un arreglo
+
+const numeros = [3, 40, 100, 7, 50]
+
+// Con un FOR
+let suma = 0
+for (let i = 0; i < numeros.length; i++) {
+  suma = suma + numeros[i]
+}
+console.log(suma)
+
+// Con Reduce
+
+const sumatoria = numeros.reduce(
+  function(acumulador, valorActual) {
+    return acumulador + valorActual
+  },
+  0
+)
+
+console.log(sumatoria)
+
+// OBJETOS
 
