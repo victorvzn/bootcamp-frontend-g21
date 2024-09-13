@@ -372,3 +372,20 @@ console.log('Resultado:', resultado)
 
 console.log(esMayorOMenorDeEdadConRetorno(25)) // 'Mayor de edad'
 console.log(esMayorOMenorDeEdadConRetorno(12)) // 'Menor de edad'
+
+// MÉTODOS DE CADENAS
+
+const welcome = ' Hola Javascript '
+
+welcome.length // 10
+
+welcome.toUpperCase() 
+welcome.toLowerCase()
+welcome.trim() // Remueve los epacios en blanco al inicio y al final de la cadena
+
+const avatar = 'Hola @me'
+
+avatar.concat('victorvzn') // 'Hola @mevictorvzn'
+avatar.replace('@me', 'Victor') // 'Hola Victor'
+avatar.slice(0, 5) // Retorna una parte de la cadena tomando la posición/índice de inicio y final en los parámetros
+welcome.indexOf('script') // 10
