@@ -82,4 +82,43 @@ console.log(listaDeNombres.at(-2))
 
 // TODO: Otras funciones: slice (Investiguen)
 
-// 
+// MÉTODOS DE ARREGLOS
+
+// Método INCLUDES, nos indica is el valor que se pasa como parámetro se encuentra en el arreglo y siempre devuelve un boolean (true o false)
+
+const languages = ['javascript', 'php', 'python', 'C', 'c++', 'java', 'python']
+
+console.log(languages.includes('java')) // true
+console.log(languages.includes('cobol')) // false
+
+// Método FILTER, nos ayuda a ubicar un elemento dentro de un arreglo usando una condición y devuelve un boolean (true o false)
+
+console.log('HOLA'.toLowerCase())
+
+const resultado = languages.filter(function (item) {
+  // return language === 'java'
+  // return item === 'python'
+  return item.toLowerCase().includes('c')
+})
+
+console.log(resultado)
+
+// Método MAP, evalue un arreglo y lo modifica y hay que pasarle una función
+
+const nombresConTitulo = languages.map(function (language) {
+  // return 'hola'
+  return '*' + language + '*'
+})
+
+console.log(nombresConTitulo)
+console.log(languages)
+
+// Método SORT, nos ayuda a ordenar un arreglo de elementos. Muta el arreglo original.
+
+const ordenandoLanguages = [...languages].sort() // Mutando el arreglo original
+
+console.log(ordenandoLanguages)
+console.log(languages)
+
+// Método FOREACH, nos ayuda a correrer un arreglo sin tener ningun retorno de datos
+
