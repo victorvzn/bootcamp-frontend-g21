@@ -159,18 +159,18 @@ function manufacture(gifts, materials) {
   return []
 }
 
-const gifts = ['tren', 'oso', 'pelota']
-const materials = 'tronesa'
+const gifts1 = ['tren', 'oso', 'pelota']
+const materials1 = 'tronesa'
 
-manufacture(gifts, materials) // ["tren", "oso"]
+manufacture(gifts1, materials1) // ["tren", "oso"]
 
-const gifts = ['juego', 'puzzle']
-const materials = 'jlepuz'
+const gifts2 = ['juego', 'puzzle']
+const materials2 = 'jlepuz'
 
-manufacture(gifts, materials) // ["puzzle"]
+manufacture(gifts2, materials2) // ["puzzle"]
 
-const gifts = ['libro', 'ps5']
-const materials = 'psli'
+const gifts3 = ['libro', 'ps5']
+const materials3 = 'psli'
 
-manufacture(gifts, materials) // []
+manufacture(gifts3, materials3) // []
 ```
