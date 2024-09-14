@@ -278,7 +278,7 @@ function isValid(letter) {
     const criteriaC = hasChar(gift, '()')
     return criteriaA || criteriaB || criteriaC
   })
-    
+
   return invalidGifts.length === 0
 }
 
