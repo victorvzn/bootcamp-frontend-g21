@@ -199,7 +199,23 @@ Su tarea consiste en escribir una función que identifique y devuelva el primer 
 */
 
 function findNaughtyStep(original, modified) {
-  return ''
+  let cadena1, cadena2;
+  let cadena3='';
+
+  if (original.length > modified.length){
+      cadena1=original;
+      cadena2=modified;
+  } else {
+      cadena1=modified;
+      cadena2=original;
+  }
+  
+  for(let i=0;i<cadena1.length;i++){
+      if(cadena2.includes(cadena1[i])==false) {
+          cadena3+=cadena1[i];
+      }
+  }
+  return cadena3;
 }
 
 const original1 = 'abcd'
@@ -211,8 +227,8 @@ const modified2 = 'stepor'
 findNaughtyStep(original2, modified2) // 'f'
 
 const original3 = 'abcde'
-const modified4 = 'abcde'
-findNaughtyStep(original4, modified4) // ''
+const modified3 = 'abcde'
+findNaughtyStep(original3, modified3) // ''
 
 /*
 Por favor, tenga en cuenta:
@@ -222,3 +238,44 @@ Por favor, tenga en cuenta:
 * Los pasos originales podrían estar vacíos
 */
 ```
+
+### [Reto03 - El Grinch quiere fastidiar la Navidad](https://2021.adventjs.dev/challenges/03)
+
+```js
+/*
+El Grinch está abriendo las cartas que iban a Santa Claus y las está dejando hechas un lío. 😱
+
+Las cartas son una cadena de texto que incluyen regalos y paréntesis ().
+
+Para saber si una carta es válida ✅, debes comprobar que los paréntesis cierran correctamente y que, además, no vayan vacíos.
+
+¡Pero ojo! Porque el Grinch ha dejado llaves { y corchetes [ dentro de los paréntesis que hacen que no sean válidas. Por suerte sólo los ha dejado en medio de los paréntesis...
+
+Ejemplos:
+
+
+"bici coche (balón) bici coche peluche" // -> ✅
+"(muñeca) consola bici" // ✅
+
+"bici coche (balón bici coche" // -> ❌
+"peluche (bici [coche) bici coche balón" // -> ❌
+"(peluche {) bici" // -> ❌
+"() bici" // ❌
+
+
+Crea una función que pasándole el texto de la carta, devuelva true si es válida y false si no lo es. ¡Y acaba con la travesura del Grinch!
+*/
+
+function isValid(letter) {
+  return ''
+}
+
+isValid("bici coche (balón) bici coche peluche") // -> ✅
+isValid("(muñeca) consola bici") // ✅
+
+isValid("bici coche (balón bici coche") // -> ❌
+isValid("peluche (bici [coche) bici coche balón") // -> ❌
+isValid("(peluche {) bici") // -> ❌
+isValid("() bici") // ❌
+```
+
