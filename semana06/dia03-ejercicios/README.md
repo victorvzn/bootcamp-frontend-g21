@@ -145,3 +145,32 @@ const giftIds3 = [5, 1, 5, 1]
 const firstRepeatedId3 = findFirstRepeated(giftIds3)
 console.log(firstRepeatedId3) // 5
 ```
+
+### [Reto1 (2023) - Ponemos en marcha la fábrica](https://adventjs.dev/challenges/2023/2)
+
+```js
+/*
+En el taller de Papá Noel, los elfos tienen una lista de regalos que desean hacer y un conjunto limitado de materiales.
+
+Los regalos son cadenas de texto y los materiales son caracteres . Tu tarea es escribir una función que, dada una lista de regalos y los materiales disponibles, devuelva una lista de los regalos que se pueden hacer .
+*/
+
+function manufacture(gifts, materials) {
+  return []
+}
+
+const gifts = ['tren', 'oso', 'pelota']
+const materials = 'tronesa'
+
+manufacture(gifts, materials) // ["tren", "oso"]
+
+const gifts = ['juego', 'puzzle']
+const materials = 'jlepuz'
+
+manufacture(gifts, materials) // ["puzzle"]
+
+const gifts = ['libro', 'ps5']
+const materials = 'psli'
+
+manufacture(gifts, materials) // []
+```
