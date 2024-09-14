@@ -155,8 +155,20 @@ En el taller de Papá Noel, los elfos tienen una lista de regalos que desean hac
 Los regalos son cadenas de texto y los materiales son caracteres . Tu tarea es escribir una función que, dada una lista de regalos y los materiales disponibles, devuelva una lista de los regalos que se pueden hacer .
 */
 
+// Método EVERY, devuelve un boolean si todos los elementos del array cumplen una condición
+
+[1, 2, 3, 4, 5].every(numero => numero > 0);
+
+[1, 2, 3, 4, 5, -5].some(numero => numero % 2 === 0);
+
 function manufacture(gifts, materials) {
-  return []
+  return gifts.filter(function (gift) {
+    const copyGift = [...gift]
+
+    return copyGift.every(function (giftLetter) {
+      return materials.includes(giftLetter)
+    })
+  })
 }
 
 const gifts1 = ['tren', 'oso', 'pelota']
@@ -173,4 +185,40 @@ const gifts3 = ['libro', 'ps5']
 const materials3 = 'psli'
 
 manufacture(gifts3, materials3) // []
+```
+
+### [Reto3 (2023) - El duende travieso](https://adventjs.dev/challenges/2023/3)
+
+```js
+/*
+En el taller de Papá Noel, un elfo travieso ha estado jugando con la línea de producción de regalos, añadiendo o quitando un paso no planificado.
+
+Tiene la secuencia original de pasos de fabricación originales y la secuencia modificada que puede incluir un paso adicional o faltarle un paso.
+
+Su tarea consiste en escribir una función que identifique y devuelva el primer paso adicional que se agregó o eliminó en la cadena de fabricación . Si no hay diferencia entre las secuencias, devuelva una cadena vacía.
+*/
+
+function findNaughtyStep(original, modified) {
+  return ''
+}
+
+const original1 = 'abcd'
+const modified1 = 'abcde'
+findNaughtyStep(original1, modified1) // 'e'
+
+const original2 = 'stepfor'
+const modified2 = 'stepor'
+findNaughtyStep(original2, modified2) // 'f'
+
+const original3 = 'abcde'
+const modified4 = 'abcde'
+findNaughtyStep(original4, modified4) // ''
+
+/*
+Por favor, tenga en cuenta:
+
+* Siempre habrá un paso diferente o ninguno.
+* La modificación puede ocurrir en cualquier parte de la cadena.
+* Los pasos originales podrían estar vacíos
+*/
 ```
