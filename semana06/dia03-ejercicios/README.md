@@ -97,6 +97,38 @@ Sin embargo, debido a un error en la máquina de juguetes, algunos números han 
 ¡Encuentre el primer número de identificación que se ha repetido, donde la segunda aparición tiene el índice más pequeño !
 
 En otras palabras, si hay más de un número repetido, debe devolver el número cuya segunda ocurrencia aparezca primero en la lista. Si no hay números repetidos, devuelva -1.
+*/
+
+// [2, 1, 3, 5, 3, 2].indexOf(99) // -1
+
+// [2, 1, 3, 5, 3, 2].sort(function(a, b) {
+//   // return b - a // Sort Asc con números
+//   return b - a // Sort Desc con números
+// })
+
+function findFirstRepeated(gifts) {
+  const repeats = gifts.map(function(id, index) {
+    return {
+      id,
+      firstIndex: index,
+      secondIndex: gifts.indexOf(id, index + 1)
+    }
+  })
+  
+  const idsAperecenPorSegundaVez = repeats.filter(id => id.secondIndex !== -1)
+  
+  const ordenadosPorElIndiceDeLaSegundaAparicion = idsAperecenPorSegundaVez.sort(function(a, b) {
+    return a.secondIndex - b.secondIndex
+  })
+  
+  const idsResultantes = ordenadosPorElIndiceDeLaSegundaAparicion.map(item => item.id)
+  
+  if (idsResultantes.length > 0) {
+    return idsResultantes[0]
+  }
+
+  return -1
+}
 
 const giftIds = [2, 1, 3, 5, 3, 2]
 const firstRepeatedId = findFirstRepeated(giftIds)
@@ -112,5 +144,4 @@ console.log(firstRepeatedId2) // -1
 const giftIds3 = [5, 1, 5, 1]
 const firstRepeatedId3 = findFirstRepeated(giftIds3)
 console.log(firstRepeatedId3) // 5
-*/
 ```
