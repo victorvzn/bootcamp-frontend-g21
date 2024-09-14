@@ -17,14 +17,22 @@ const ovejas = [
 ]
 
 function contarOvejas(ovejas) {
-  // aquí tu magia
-  
-  return []
+  return ovejas.filter(function(oveja) {
+    const nameLowered = oveja.name.toLowerCase()
+    
+    const isRedColor = oveja.color === 'rojo'
+    const hasLetterN = nameLowered.includes('n')
+    const hasLetterA = nameLowered.includes('a')
+    
+    return isRedColor && hasLetterN && hasLetterA
+  })
 }
 
 const ovejasFiltradas = contarOvejas(ovejas)
 
 console.log(ovejasFiltradas)
+
+// Respuesta deseada:
 
 // [{ name: 'Navidad', color: 'rojo' },
 //  { name: 'Ki Na Ma', color: 'rojo' }]

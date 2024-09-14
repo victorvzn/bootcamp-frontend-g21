@@ -152,6 +152,8 @@ const sumatoria = numeros.reduce(
 
 console.log(sumatoria)
 
+
+
 // OBJETOS
 
 /*
@@ -210,7 +212,9 @@ console.log(miObjeto.cursos[1].nota) // 20
 console.log(miObjeto.cursos[1]['nota']) // 20
 
 console.log(miObjeto.devolverCursosAprobados) // ƒ()
-console.log(miObjeto.devolverCursosAprobados()) // [{ id: 2, nombre: 'Algoritmos', nota: 20 }]
+const resultadoCursosAprobados = miObjeto.devolverCursosAprobados()
+console.log(resultadoCursosAprobados) // [{ id: 2, nombre: 'Algoritmos', nota: 20 }]
+console.log(resultadoCursosAprobados[0]['nombre']) // Algoritmos
 
 // ELIMINAR PROPIEDADES DE UN OBJETO
 
