@@ -146,7 +146,7 @@ const firstRepeatedId3 = findFirstRepeated(giftIds3)
 console.log(firstRepeatedId3) // 5
 ```
 
-### [Reto1 (2023) - Ponemos en marcha la fábrica](https://adventjs.dev/challenges/2023/2)
+### [Reto2 (2023) - Ponemos en marcha la fábrica](https://adventjs.dev/challenges/2023/2)
 
 ```js
 /*
