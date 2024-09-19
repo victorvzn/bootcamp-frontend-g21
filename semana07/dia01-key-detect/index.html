@@ -20,8 +20,9 @@
     console.log({ keyCode, character })
 
     document.addEventListener('keydown', function(event) {
-      console.log(event)
-      console.log(event.key, event.keyCode)
+      // console.log(event)
+      console.log(event.key) // Letra
+      console.log(event.keyCode) // Codigo ASCII
 
       keyCode.textContent = event.keyCode
       character.textContent = event.key
