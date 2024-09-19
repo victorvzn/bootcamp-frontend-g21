@@ -10,7 +10,7 @@
   <main class="mx-auto w-80 bg-yellow-300 p-5 rounded-lg flex flex-col items-center gap-5">
     <h1 class="text-2xl">JS Key Detect</h1>
     <section id="keycode" class="bg-red-400 w-16 h-16 rounded-full flex justify-center items-center text-4xl text-white">00</section>
-    <section id="character" class="bg-red-500 w-16 h-16 flex justify-center items-center text-4xl text-white">A</section>
+    <section id="character" class="bg-red-500 w-32 h-16 flex justify-center items-center text-4xl text-white">A</section>
   </main>
 
   <script>
@@ -18,6 +18,14 @@
     const character = document.querySelector('#character')
 
     console.log({ keyCode, character })
+
+    document.addEventListener('keydown', function(event) {
+      console.log(event)
+      console.log(event.key, event.keyCode)
+
+      keyCode.textContent = event.keyCode
+      character.textContent = event.key
+    })
   </script>
 </body>
 </html>
