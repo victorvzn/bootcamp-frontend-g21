@@ -42,9 +42,14 @@ taskList.addEventListener('click', function(event) {
 
   const target = event.target
 
-  // console.log({target})
+  console.log({target})
 
   if (target.tagName === 'BUTTON') {
     target.parentElement.remove()
+  }
+
+  if (target.tagName === 'INPUT' && target.type === 'checkbox') {
+    // target.parentElement.style = 'color: red;'
+    target.classList.toggle('checked')
   }
 })
