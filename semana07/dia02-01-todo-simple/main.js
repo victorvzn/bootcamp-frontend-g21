@@ -22,7 +22,9 @@ taskAdd.addEventListener('click', function(event) {
   // li.textContent = taskInput.value
 
   // TODO: Añadir un botón al li con el texto 'Borrar'
-  
+  const button = document.createElement('button')
+  button.textContent = 'Borrar'
+  li.appendChild(button)
 
   taskList.appendChild(li)
 
@@ -32,4 +34,17 @@ taskAdd.addEventListener('click', function(event) {
   // button.textContent = '¡Hola soy un botón!'
   // document.body.appendChild(button)
   // TODO: Añadir dinámicamente una etiqueta h1 dentro del body
+})
+
+taskList.addEventListener('click', function(event) {
+  // console.log('click taskList')
+  // console.log(event.target)
+
+  const target = event.target
+
+  // console.log({target})
+
+  if (target.tagName === 'BUTTON') {
+    target.parentElement.remove()
+  }
 })
