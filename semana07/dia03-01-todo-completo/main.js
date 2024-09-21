@@ -3,18 +3,18 @@ const taskClear = document.querySelector('.task__clear')
 const taskList = document.querySelector('.task__list')
 
 let tasks = [
-  {
-    title: 'Estudiar Javascript',
-    completed: true
-  },
-  {
-    title: 'Salir al receso a las 9:00pm',
-    completed: false
-  },
-  {
-    title: 'Realizar el reto del fin de semana',
-    completed: false
-  }
+  // {
+  //   title: 'Estudiar Javascript',
+  //   completed: true
+  // },
+  // {
+  //   title: 'Salir al receso a las 9:00pm',
+  //   completed: false
+  // },
+  // {
+  //   title: 'Realizar el reto del fin de semana',
+  //   completed: false
+  // }
 ]
 
 taskInput.addEventListener('keydown', function(event) {
@@ -43,6 +43,8 @@ taskInput.addEventListener('keydown', function(event) {
 
 function renderTasks() {
   let lista = ''
+
+  // TODO: Añadir el contenido "No hay tareas registradas" si no hay tareas en el array tasks
 
   tasks.forEach(function(task) {
     lista = lista + `
