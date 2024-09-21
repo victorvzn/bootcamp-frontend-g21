@@ -25,14 +25,28 @@ taskInput.addEventListener('keydown', function(event) {
   if (event.key === 'Enter') {
     console.log('Agregando una nueva tarea', value)
 
-    tasks.push({
+    const newTask = {
       title: value,
       completed: false
-    })
+    }
+
+    tasks.push(newTask)
 
     console.log(tasks)
 
     // event.target.value = ''
     taskInput.value = ''
+
+    renderTasks()
   }
 })
+
+function renderTasks() {
+  let lista = ''
+
+  tasks.forEach(function(task) {
+    lista = lista + '<h1>' + task.title +'</h1>'
+  })
+
+  taskList.innerHTML = lista
+}
