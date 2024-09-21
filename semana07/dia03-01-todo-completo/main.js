@@ -19,7 +19,15 @@ let tasks = [
 
 taskClear.addEventListener('click', function(event) {
   // TODO: Al hace click en el botón limpiar debemos remover todas las tareas completadas
-  console.log('Removiendo las tareas completadas')
+  // console.log('Removiendo las tareas completadas')
+
+  const completedTasks = tasks.filter(function (task) {
+    return task.completed === false
+  })
+
+  tasks = completedTasks
+
+  renderTasks()
 })
 
 taskInput.addEventListener('keydown', function(event) {
@@ -100,9 +108,11 @@ function removeTask(selectedIndex) {
 function checkTask(selectedIndex) {
   // console.log('completando tarea...', selectedIndex)
   // Devuelve un objeto que tiene title y completed
-  const taskSelected = tasks[selectedIndex] 
+  const taskSelected = { ...tasks[selectedIndex] }
 
   taskSelected.completed = !taskSelected.completed
+
+  tasks[selectedIndex] = taskSelected
 
   renderTasks()
 }
