@@ -62,7 +62,11 @@ function renderTasks() {
           onchange="checkTask(${index})"
           ${task.completed ? 'checked' : ''}
         />
-        <div class="w-full">${task.title}</div>
+        <div
+          class="w-full ${task.completed ? 'line-through' : ''}"
+        >
+          ${task.title}
+        </div>
         <button
           class="border border-red-700 font-medium text-sm p-1 px-3 text-red-900 hover:bg-red-700 hover:text-white rounded-lg duration-300"
           onclick="removeTask(${index})"
