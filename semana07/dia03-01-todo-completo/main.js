@@ -45,6 +45,14 @@ function renderTasks() {
   let lista = ''
 
   // TODO: Añadir el contenido "No hay tareas registradas" si no hay tareas en el array tasks
+  if (tasks.length === 0) {
+    taskList.innerHTML = `
+      <li class="p-4 bg-yellow-100 text-yellow-800 text-sm rounded-lg text-center font-medium border border-yellow-300">
+        No hay tareas registradas
+      </li>
+    `
+    return
+  }
 
   tasks.forEach(function(task) {
     lista = lista + `
