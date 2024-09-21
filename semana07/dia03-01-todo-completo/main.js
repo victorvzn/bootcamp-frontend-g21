@@ -2,7 +2,14 @@ const taskInput = document.querySelector('.task__input')
 const taskClear = document.querySelector('.task__clear')
 const taskList = document.querySelector('.task__list')
 
-let tasks = [
+// localStorage.setItem('frutas', 'manzanas, peras, plátanos')
+// console.log(localStorage.getItem('frutas'))
+// console.log(localStorage.getItem('colores'))
+// console.log(localStorage.getItem('keyquenoexiste')) // null
+
+let tasks = JSON.parse(localStorage.getItem('tasks')) || []
+
+// let tasks = [
   // {
   //   title: 'Estudiar Javascript',
   //   completed: true
@@ -15,7 +22,11 @@ let tasks = [
   //   title: 'Realizar el reto del fin de semana',
   //   completed: false
   // }
-]
+//]
+
+function saveTasks(tasks) {
+  localStorage.setItem('tasks', JSON.stringify(tasks))
+}
 
 taskClear.addEventListener('click', function(event) {
   // TODO: Al hace click en el botón limpiar debemos remover todas las tareas completadas
@@ -28,6 +39,8 @@ taskClear.addEventListener('click', function(event) {
   tasks = completedTasks
 
   renderTasks()
+
+  saveTasks(tasks)
 })
 
 taskInput.addEventListener('keydown', function(event) {
@@ -51,6 +64,8 @@ taskInput.addEventListener('keydown', function(event) {
     taskInput.value = ''
 
     renderTasks()
+
+    saveTasks(tasks)
   }
 })
 
@@ -103,6 +118,8 @@ function removeTask(selectedIndex) {
   tasks = newTasks
 
   renderTasks()
+
+  saveTasks(tasks)
 }
 
 function checkTask(selectedIndex) {
@@ -115,6 +132,8 @@ function checkTask(selectedIndex) {
   tasks[selectedIndex] = taskSelected
 
   renderTasks()
+
+  saveTasks(tasks)
 }
 
 renderTasks()
