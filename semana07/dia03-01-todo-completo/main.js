@@ -45,7 +45,19 @@ function renderTasks() {
   let lista = ''
 
   tasks.forEach(function(task) {
-    lista = lista + '<h1>' + task.title +'</h1>'
+    lista = lista + `
+      <li class="flex justify-center items-center gap-4 py-1">
+        <input
+          type="checkbox"
+        />
+        <div class="w-full">${task.title}</div>
+        <button
+          class="border border-red-700 font-medium text-sm p-1 px-3 text-red-900 hover:bg-red-700 hover:text-white rounded-lg duration-300"
+        >
+          Borrar
+        </button>
+      </li>
+    `
   })
 
   taskList.innerHTML = lista
