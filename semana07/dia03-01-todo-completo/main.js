@@ -62,3 +62,5 @@ function renderTasks() {
 
   taskList.innerHTML = lista
 }
+
+renderTasks()
