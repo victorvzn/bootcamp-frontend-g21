@@ -17,6 +17,11 @@ let tasks = [
   // }
 ]
 
+taskClear.addEventListener('click', function(event) {
+  // TODO: Al hace click en el botón limpiar debemos remover todas las tareas completadas
+  console.log('Removiendo las tareas completadas')
+})
+
 taskInput.addEventListener('keydown', function(event) {
   // console.log(event.key)
 
