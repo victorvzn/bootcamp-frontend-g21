@@ -54,7 +54,7 @@ function renderTasks() {
     return
   }
 
-  tasks.forEach(function(task) {
+  tasks.forEach(function(task, index) {
     lista = lista + `
       <li class="flex justify-center items-center gap-4 py-1">
         <input
@@ -63,6 +63,7 @@ function renderTasks() {
         <div class="w-full">${task.title}</div>
         <button
           class="border border-red-700 font-medium text-sm p-1 px-3 text-red-900 hover:bg-red-700 hover:text-white rounded-lg duration-300"
+          onclick="removeTask(${index})"
         >
           Borrar
         </button>
@@ -71,6 +72,18 @@ function renderTasks() {
   })
 
   taskList.innerHTML = lista
+}
+
+function removeTask(selectedIndex) {
+  const newTasks = tasks.filter(function(task, index) {
+    return index !== selectedIndex
+  })
+
+  // tasks.splice(selectedIndex, 1)
+
+  tasks = newTasks
+
+  renderTasks()
 }
 
 renderTasks()
