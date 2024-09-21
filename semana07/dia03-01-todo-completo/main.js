@@ -59,6 +59,8 @@ function renderTasks() {
       <li class="flex justify-center items-center gap-4 py-1">
         <input
           type="checkbox"
+          onchange="checkTask(${index})"
+          ${task.completed ? 'checked' : ''}
         />
         <div class="w-full">${task.title}</div>
         <button
@@ -82,6 +84,16 @@ function removeTask(selectedIndex) {
   // tasks.splice(selectedIndex, 1)
 
   tasks = newTasks
+
+  renderTasks()
+}
+
+function checkTask(selectedIndex) {
+  // console.log('completando tarea...', selectedIndex)
+  // Devuelve un objeto que tiene title y completed
+  const taskSelected = tasks[selectedIndex] 
+
+  taskSelected.completed = !taskSelected.completed
 
   renderTasks()
 }
