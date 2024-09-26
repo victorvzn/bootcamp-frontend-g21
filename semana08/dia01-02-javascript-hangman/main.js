@@ -8,6 +8,8 @@ const word = ANSWER.toUpperCase()
 
 const ALPHABET = Array.from({ length: 26 }, (_, index) => String.fromCharCode(65 + index))
 
+let correctGuesses = ''
+
 const renderAlphabet = () => {
   let list = ''
 
