@@ -15,11 +15,9 @@ const selectLetter = (letter) => {
   tries++
   console.log(tries)
   // console.log('seleccionando letra', letter)
-  if (word.includes(letter)) {
-    correctGuesses = correctGuesses + letter
-    
-    renderMaskedWord()
-  }
+  correctGuesses = correctGuesses + letter
+  
+  renderMaskedWord()
 }
 
 const renderMaskedWord = () => {
