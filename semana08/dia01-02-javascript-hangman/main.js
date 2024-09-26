@@ -9,8 +9,11 @@ const word = ANSWER.toUpperCase()
 const ALPHABET = Array.from({ length: 26 }, (_, index) => String.fromCharCode(65 + index))
 
 let correctGuesses = ''
+let tries = 0
 
 const selectLetter = (letter) => {
+  tries++
+  console.log(tries)
   // console.log('seleccionando letra', letter)
   if (word.includes(letter)) {
     correctGuesses = correctGuesses + letter
@@ -34,6 +37,11 @@ const renderMaskedWord = () => {
   if (!elMaskedWord.textContent.includes('_')) {
     console.log('YOU WON!')
     elResult.classList.toggle('hidden')
+    elResult.textContent = 'YOU WON!'
+  } else if (tries > 10) {
+    console.log('YOU LOST!')
+    elResult.classList.toggle('hidden')
+    elResult.textContent = 'YOU LOST!'
   }
 }
 
