@@ -61,7 +61,7 @@ elPrevPage.addEventListener('click', async () => {
 
   const dataPokemons = await fetchPokemons(page)
   
-  renderPokemons(dataPokemons)
+  renderPokemons(dataPokemons.results)
 })
 
 fetchPokemons()
