@@ -36,6 +36,15 @@ const renderPokemons = (pokemons = []) => {
 const elPrevPage = document.querySelector('#prevPage')
 const elCurrentPage = document.querySelector('#currentPage')
 const elNextPage = document.querySelector('#nextPage')
+// const xPage = document.querySelector('#xPage')
+
+// xPage.addEventListener('click', async () => {
+//   page = 140
+
+//   const dataPokemons = await fetchPokemons(page)
+
+//   renderPokemons(dataPokemons.results)
+// })
 
 elNextPage.addEventListener('click', async () => {
   page = page + 1
