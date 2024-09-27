@@ -1,3 +1,5 @@
+let page = 1
+
 const fetchPokemons = async (page = 1) => {
   const LIMIT = 3
   const OFFSET = (page - 1 ) * LIMIT
@@ -25,5 +27,22 @@ const renderPokemons = (pokemons = []) => {
   pokemonsList.innerHTML = elements
 }
 
-fetchPokemons(50)
+const elPrevPage = document.querySelector('#prevPage')
+const elCurrentPage = document.querySelector('#currentPage')
+const elNextPage = document.querySelector('#nextPage')
+
+elNextPage.addEventListener('click', async () => {
+  page = page + 1
+
+  const dataPokemons = await fetchPokemons(page)
+
+  renderPokemons(dataPokemons.results)
+
+  elCurrentPage.textContent = page
+})
+
+// TODO: Implementar el botón previous
+
+
+fetchPokemons()
   .then(data => renderPokemons(data.results))
