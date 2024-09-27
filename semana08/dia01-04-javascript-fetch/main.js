@@ -33,3 +33,6 @@ fetch(url)
   .then(data => {
     renderPosts(data)
   })
+  .catch((error) => {
+    console.log('>>>', error)
+  })
