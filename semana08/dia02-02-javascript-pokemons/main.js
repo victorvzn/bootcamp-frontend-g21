@@ -1,7 +1,9 @@
 let page = 1
+let count = 0
+let totalPages = 0
+const LIMIT = 9
 
 const fetchPokemons = async (page = 1) => {
-  const LIMIT = 3
   const OFFSET = (page - 1 ) * LIMIT
 
   const url = `https://pokeapi.co/api/v2/pokemon?offset=${OFFSET}&limit=${LIMIT}`
@@ -25,6 +27,10 @@ const renderPokemons = (pokemons = []) => {
   })
 
   pokemonsList.innerHTML = elements
+
+  totalPages = Math.ceil(count / LIMIT)
+
+  elCurrentPage.textContent = `${page} de ${totalPages}`
 }
 
 const elPrevPage = document.querySelector('#prevPage')
@@ -34,15 +40,33 @@ const elNextPage = document.querySelector('#nextPage')
 elNextPage.addEventListener('click', async () => {
   page = page + 1
 
+  if (page > totalPages) {
+    page = totalPages
+    return
+  }
+
   const dataPokemons = await fetchPokemons(page)
 
   renderPokemons(dataPokemons.results)
-
-  elCurrentPage.textContent = page
 })
 
 // TODO: Implementar el botón previous
+elPrevPage.addEventListener('click', async () => {
+  page = page - 1
 
+  if (page <= 0) {
+    page = 1
+    return
+  }
+
+  const dataPokemons = await fetchPokemons(page)
+  
+  renderPokemons(dataPokemons)
+})
 
 fetchPokemons()
-  .then(data => renderPokemons(data.results))
+  .then(data => {
+    count = data.count
+
+    renderPokemons(data.results)
+  })
