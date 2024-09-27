@@ -23,7 +23,9 @@ const renderPokemons = (pokemons = []) => {
   let elements = ''
 
   pokemons.forEach(pokemon => {
-    elements += `<h2>${pokemon.name}</h2>`
+    elements += `<article class="pokemon-item">
+      ${pokemon.name}
+    </article>`
   })
 
   pokemonsList.innerHTML = elements
