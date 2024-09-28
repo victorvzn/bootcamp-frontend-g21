@@ -3,7 +3,7 @@ let count = 0
 let totalPages = 0
 const LIMIT = 9
 
-let pokemonFavorites = []
+let pokemonFavorites = JSON.parse(localStorage.getItem('pokemon-favorites')) ?? []
 
 const fetchPokemons = async (page = 1) => {
   const OFFSET = (page - 1 ) * LIMIT
