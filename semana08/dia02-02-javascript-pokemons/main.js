@@ -3,6 +3,8 @@ let count = 0
 let totalPages = 0
 const LIMIT = 9
 
+let pokemonFavorites = []
+
 const fetchPokemons = async (page = 1) => {
   const OFFSET = (page - 1 ) * LIMIT
 
@@ -30,17 +32,32 @@ const fetchPokemons = async (page = 1) => {
   }
 }
 
+const toggleFavorite = (id, name, image) => {
+  console.log('POKEMON SELECCIONADO', id, name)
+
+  pokemonFavorites.push({id, name, image})
+
+  localStorage.setItem('pokemon-favorites', JSON.stringify(pokemonFavorites))
+
+  console.log(pokemonFavorites)
+}
+
 const renderPokemons = (pokemons = []) => {
   const pokemonsList = document.getElementById('pokemonList')
 
   let elements = ''
 
-  // TODO: Agregar una imagen a cada pokemon
+  // DONE: Agregar una imagen a cada pokemon
 
   pokemons.forEach(pokemon => {
     elements += `<article class="pokemon-item">
       <h2>#${pokemon.id} ${pokemon.name}</h2>
       <img src="${pokemon.image}" width="80" height="80" />
+      <div class="pokemon-item__buttons">
+        <button onclick="toggleFavorite('${pokemon.id}','${pokemon.name}','${pokemon.image}')">
+          <img src="./star.svg" />
+        </button>
+      </div>
     </article>`
   })
 
