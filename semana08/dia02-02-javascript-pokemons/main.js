@@ -12,9 +12,22 @@ const fetchPokemons = async (page = 1) => {
 
   const data = await response.json() // Convierte la respuesta en formato JSON
 
-  // console.log(data)
+  const dataResults = data.results.map(pokemon => {
+    // "url": "https://pokeapi.co/api/v2/pokemon/1/"
+    const id = pokemon.url.split('/').at(6)
+    const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
+  
+    return {
+      ...pokemon,
+      id,
+      image
+    }
+  })
 
-  return data
+  return {
+    ...data,
+    results: dataResults
+  }
 }
 
 const renderPokemons = (pokemons = []) => {
@@ -26,8 +39,8 @@ const renderPokemons = (pokemons = []) => {
 
   pokemons.forEach(pokemon => {
     elements += `<article class="pokemon-item">
-      <img src="https://placehold.co/100x100" />
-      <h2>${pokemon.name}</h2>
+      <h2>#${pokemon.id} ${pokemon.name}</h2>
+      <img src="${pokemon.image}" width="80" height="80" />
     </article>`
   })
 
