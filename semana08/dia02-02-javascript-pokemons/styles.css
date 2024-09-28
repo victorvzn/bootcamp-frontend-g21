@@ -48,3 +48,8 @@ body {
   display: flex;
   gap: .2rem;
 }
+
+.is-favorite {
+  color: #dec62a;
+  fill: #dec62a;
+}

@@ -18,13 +18,17 @@ const fetchPokemons = async (page = 1) => {
     // "url": "https://pokeapi.co/api/v2/pokemon/1/"
     const id = pokemon.url.split('/').at(6)
     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
+    const foundFavorite = pokemonFavorites.find(favorite => favorite.id === id)
   
     return {
       ...pokemon,
       id,
-      image
+      image,
+      isFavorite: Boolean(foundFavorite)
     }
   })
+
+  console.log(dataResults)
 
   return {
     ...data,
@@ -32,14 +36,21 @@ const fetchPokemons = async (page = 1) => {
   }
 }
 
-const toggleFavorite = (id, name, image) => {
-  console.log('POKEMON SELECCIONADO', id, name)
+const toggleFavorite = async (id, name, image) => {
+  const foundPokemonFavorite = pokemonFavorites.filter(favorite => favorite.id === id)
+  const existPokemonFavorite = foundPokemonFavorite.length > 0
 
-  pokemonFavorites.push({id, name, image})
+  if (existPokemonFavorite) {
+    // retirar el pokemon de favoritos
+    pokemonFavorites = pokemonFavorites.filter(pokemon => pokemon.id != id)
+  } else {
+    pokemonFavorites.push({id, name, image})
+  }
 
   localStorage.setItem('pokemon-favorites', JSON.stringify(pokemonFavorites))
 
-  console.log(pokemonFavorites)
+  const data = await fetchPokemons(page)
+  renderPokemons(data.results)
 }
 
 const renderPokemons = (pokemons = []) => {
@@ -55,7 +66,7 @@ const renderPokemons = (pokemons = []) => {
       <img src="${pokemon.image}" width="80" height="80" />
       <div class="pokemon-item__buttons">
         <button onclick="toggleFavorite('${pokemon.id}','${pokemon.name}','${pokemon.image}')">
-          <img src="./star.svg" />
+          <svg class='${pokemon.isFavorite ? 'is-favorite' : '' }' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
         </button>
       </div>
     </article>`
@@ -94,7 +105,7 @@ elNextPage.addEventListener('click', async () => {
   renderPokemons(dataPokemons.results)
 })
 
-// TODO: Implementar el botón previous
+// DONE: Implementar el botón previous
 elPrevPage.addEventListener('click', async () => {
   page = page - 1
 
@@ -114,3 +125,5 @@ fetchPokemons()
 
     renderPokemons(data.results)
   })
+
+// TODO: Editar el nombre y la imagen solo de los pokemons favoritos.
