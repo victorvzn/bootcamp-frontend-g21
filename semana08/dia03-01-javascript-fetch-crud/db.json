@@ -103,6 +103,14 @@
       "estreno": "2023-04-05",
       "generoId": 3,
       "resumen": "Resumen de prueba"
+    },
+    {
+      "id": "f029",
+      "nombre": "Ejemplo",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDokeUV_QMfHbKxGLYTkAQrL3G9y4FGc10LA&s",
+      "estreno": "2024-10-02",
+      "generoId": 1,
+      "resumen": "resumen de mi pelicula de ejemplo"
     }
   ]
 }
