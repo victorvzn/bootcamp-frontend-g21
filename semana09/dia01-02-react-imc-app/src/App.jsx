@@ -1,34 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
+    <section className="w-[400px] mx-auto bg-slate-200 p-4 mt-8">
+      <h1 className="text-3xl text-red-600 font-bold text-center">IMC Calculator</h1>
+
+      <div className="pt-4">
+        <p>Weight: 0 kg</p>
+        <input
+          type="range"
+          min="50"
+          max="200"
+        />
+      </div>
+
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <p>Height: 0 cm</p>
+        <input
+          type="range"
+          min="50"
+          max="200"
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+      <p className="font-bold ">Tu IMC es 0</p>
+
+      <p className="font-bold text-2xl">Estado de IMC: 0</p>
+    </section>
   )
 }
 
