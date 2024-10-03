@@ -41,11 +41,67 @@
 
 // rafce y rfc
 
+// const App = () => {
+//   return (
+//     <div>App</div>
+//   )
+// }
+
+// export default App
+
+// ANIDANDO COMPONENTES DENTRO DE OTROS
+
+// function Saludo() {
+//   return <h4>Hola Victor</h4>
+// }
+
+// function Despedida() {
+//   return <h4>Adios Victor</h4>
+// }
+
+// const App = () => {
+//   return (
+//     <>
+//       <h1>Hola React!</h1>
+//       <p>Estoy en el bootcamp!</p>
+
+//       <Saludo />
+//       <Despedida />
+//     </>
+//   )
+// }
+
+// export default App
+
+
+// IMPORTANDO COMPONENTES EXTERNOS Y USANDO EXPRESIONS CON JSX {}
+
+import Despedida from "./components/Despedida";
+import Saludo from "./components/Saludo";
+import { LISTA_DE_FRUTAS, EDAD } from "./components/frutas";
+
 const App = () => {
+  const nombre = 'Victor'
+
   return (
-    <div>App</div>
+    <>
+      <h1>Hola React!</h1>
+      <p>Estoy en el bootcamp!</p>
+
+      {/* Comentario en React dentro de JSX */}
+
+      {1 + 2}
+
+      {`Hola ${nombre}!!!`}
+
+      {LISTA_DE_FRUTAS}
+
+      {EDAD}
+
+      <Saludo />
+      <Despedida />
+    </>
   )
 }
 
 export default App
-
