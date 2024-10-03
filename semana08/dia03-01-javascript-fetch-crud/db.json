@@ -111,6 +111,30 @@
       "estreno": "2024-10-02",
       "generoId": 1,
       "resumen": "resumen de mi pelicula de ejemplo"
+    },
+    {
+      "id": "7aa2",
+      "nombre": "Ejemplo",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDokeUV_QMfHbKxGLYTkAQrL3G9y4FGc10LA&s",
+      "estreno": "2024-10-02",
+      "generoId": 1,
+      "resumen": "resumen de mi pelicula de ejemplo"
+    },
+    {
+      "id": "a8e8",
+      "nombre": "Codigo La Película",
+      "imagen": "https://codigo.edu.pe/wp-content/themes/codigo_theme/images/logo-color-go.svg",
+      "estreno": "2024-10-04",
+      "generoId": "4",
+      "resumen": "Código la pelicula más esperada del momento"
+    },
+    {
+      "id": "66c5",
+      "nombre": "Código 2",
+      "imagen": "https://codigo.edu.pe/wp-content/themes/codigo_theme/images/logo-color-go.svg",
+      "estreno": "2024-10-25",
+      "generoId": "2",
+      "resumen": "asdasdasdasd"
     }
   ]
 }

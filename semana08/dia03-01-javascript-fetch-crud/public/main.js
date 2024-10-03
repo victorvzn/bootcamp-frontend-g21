@@ -1,9 +1,27 @@
 import { fetchPeliculas } from './services.js'
 import { renderPeliculas } from './utils.js'
 
+const crearPelicula = async (form) => {
+  const url = 'http://localhost:3000/peliculas'
+
+  const body = JSON.stringify(form)
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body
+  }
+
+  const response = await fetch(url, options)
+
+  return await response.json()
+}
+
 const peliculasForm =  document.querySelector('#peliculasForm')
 
-peliculasForm.addEventListener('submit', (event) => {
+peliculasForm.addEventListener('submit', async (event) => {
   event.preventDefault()
 
   const peliculaForm = document.forms['peliculasForm']
@@ -22,7 +40,15 @@ peliculasForm.addEventListener('submit', (event) => {
     resumen
   }
 
-  console.log(nuevaPelicula)
+  const response = await crearPelicula(nuevaPelicula)
+
+  if (response) {
+    const peliculas = await fetchPeliculas()
+    
+    renderPeliculas(peliculas)
+
+    peliculaForm.reset()
+  }
 })
 
 fetchPeliculas()
