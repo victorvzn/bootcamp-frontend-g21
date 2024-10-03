@@ -1,3 +1,5 @@
+import { borrarPelicula, fetchPeliculas } from "./services.js"
+
 export const renderPeliculas = (peliculas = []) => {
   const peliculasList = document.querySelector('.peliculas__list')
 
@@ -29,7 +31,7 @@ export const renderPeliculas = (peliculas = []) => {
         <td>
           <div class="flex gap-0.5">
             <button class="pelicula__edit">✏</button>
-            <button class="pelicula__remove">❌</button>
+            <button class="pelicula__remove" data-id="${pelicula.id}">❌</button>
           </div>        
         </td>
       </tr>
@@ -37,4 +39,26 @@ export const renderPeliculas = (peliculas = []) => {
   })
 
   peliculasList.innerHTML = elementos
+
+  const removerButtons = document.querySelectorAll('.pelicula__remove')
+
+  removerButtons.forEach(button => {
+    button.addEventListener('click', async (event) => {
+      console.log(event.target.dataset)
+
+      const id = event.target.dataset.id
+
+      const response = borrarPelicula(id)
+
+      console.log(response)
+
+      if (response) {
+        const peliculas = await fetchPeliculas()
+    
+        renderPeliculas(peliculas)
+      }
+    })
+  })
+
+  // TODO: Implementar la actualización de una película usando el método PUT
 }

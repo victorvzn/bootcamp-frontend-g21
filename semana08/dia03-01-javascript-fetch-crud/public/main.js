@@ -1,23 +1,5 @@
-import { fetchPeliculas } from './services.js'
+import { fetchPeliculas, crearPelicula } from './services.js'
 import { renderPeliculas } from './utils.js'
-
-const crearPelicula = async (form) => {
-  const url = 'http://localhost:3000/peliculas'
-
-  const body = JSON.stringify(form)
-
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json'
-    },
-    body
-  }
-
-  const response = await fetch(url, options)
-
-  return await response.json()
-}
 
 const peliculasForm =  document.querySelector('#peliculasForm')
 

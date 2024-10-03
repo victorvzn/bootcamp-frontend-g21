@@ -12,3 +12,6 @@ Content-Type: application/json
   "generoId": 1,
   "resumen": "resumen de mi pelicula de ejemplo"
 }
+
+### Eliminar una pelicula
+DELETE http://localhost:3000/peliculas/7aa2
