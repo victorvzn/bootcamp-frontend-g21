@@ -114,7 +114,9 @@ const App = () => {
                   checked={todo.completed}
                 />
                 <div className="w-full flex justify-between items-center">
-                  <span className="font-medium">
+                  <span
+                    className={`font-medium ${todo.completed ? 'line-through' : '' }`}
+                  >
                     {todo.title}
                   </span>
                   <button
