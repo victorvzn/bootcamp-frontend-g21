@@ -43,6 +43,14 @@ const App = () => {
     setInput(event.target.value)
   }
 
+  const handleRemoveTodo = (event) => {
+    const id = event.target.dataset.id
+
+    const updatedTodos = todos.filter(todo => todo.id !== id)
+
+    setTodos(updatedTodos)
+  }
+
   return (
     <main
       className="bg-yellow-100 w-full max-w-sm mx-auto mt-10 border border-yellow-400 rounded-lg shadow-lg p-4"
@@ -60,7 +68,7 @@ const App = () => {
         />
       </form>
 
-      {input}
+      {/* {input} */}
 
       <section className="flex justify-between items-center">
         <span className="font-bold">
@@ -88,6 +96,8 @@ const App = () => {
                   </span>
                   <button
                     className="bg-red-300 rounded-lg px-1 py-1"
+                    data-id={todo.id}
+                    onClick={handleRemoveTodo}
                   >
                     ❌
                   </button>
