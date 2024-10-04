@@ -20,6 +20,28 @@ const App = () => {
   ]
 
   const [todos, setTodos] = useState(DEFAULT_TODOS)
+  const [input, setInput] = useState('')
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
+    console.log('Añadiendo una nueva tarea...')
+
+    const newTodo = {
+      id: crypto.randomUUID(),
+      title: input,
+      completed: false
+    }
+
+    setTodos([...todos, newTodo])
+
+    setInput('')
+  }
+
+  const handleChange = (event) => {
+    // Vamos a capturar lo que escribimos en la caja de texto
+    setInput(event.target.value)
+  }
 
   return (
     <main
@@ -27,14 +49,18 @@ const App = () => {
     >
       <h1 className="text-2xl font-bold text-center">TODO APP</h1>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           className="w-full border my-3 p-2 rounded-lg"
           type="text"
           placeholder="¿Qué deseas hacer hoy?"
           required
+          onChange={handleChange}
+          value={input}
         />
       </form>
+
+      {input}
 
       <section className="flex justify-between items-center">
         <span className="font-bold">
