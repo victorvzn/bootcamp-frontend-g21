@@ -1,4 +1,26 @@
+import { useState } from "react"
+
 const App = () => {
+  const DEFAULT_TODOS = [
+    {
+      id: '1',
+      title: 'Aprender JS',
+      completed: true
+    },
+    {
+      id: '2',
+      title: 'Aprender CSS',
+      completed: true
+    },
+    {
+      id: '3',
+      title: 'Aprender React.js + Tailwindcss',
+      completed: false
+    }
+  ]
+
+  const [todos, setTodos] = useState(DEFAULT_TODOS)
+
   return (
     <main
       className="bg-yellow-100 w-full max-w-sm mx-auto mt-10 border border-yellow-400 rounded-lg shadow-lg p-4"
@@ -61,6 +83,8 @@ const App = () => {
           </li>
         </ul>
       </section>
+
+      <pre>{JSON.stringify(todos, null, 2)}</pre>
     </main>
   )
 }
