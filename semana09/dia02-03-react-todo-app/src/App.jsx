@@ -51,6 +51,26 @@ const App = () => {
     setTodos(updatedTodos)
   }
 
+  const handleCompleted = (event) => {
+    const { id } = event.target.dataset
+    const isChecked = event.target.checked
+
+    console.log(id, isChecked)
+
+    const updatedTodos = todos.map(todo => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed: isChecked
+        }
+      }
+
+      return todo // Deja el objeto sin modificaciones
+    })
+
+    setTodos(updatedTodos)
+  }
+
   return (
     <main
       className="bg-yellow-100 w-full max-w-sm mx-auto mt-10 border border-yellow-400 rounded-lg shadow-lg p-4"
@@ -89,6 +109,9 @@ const App = () => {
                 <input
                   className="mr-2"
                   type="checkbox"
+                  data-id={todo.id}
+                  onChange={handleCompleted}
+                  checked={todo.completed}
                 />
                 <div className="w-full flex justify-between items-center">
                   <span className="font-medium">
