@@ -16,6 +16,8 @@ const App = () => {
 
   const imc = weight / ((height / 100) ** 2)
 
+  const imcDecimal = imc.toFixed(2)
+
   // * Baja: < 18.5
   // * Normal: < 18.5 - 24.9
   // * Sobrepeso: < 25 - 29.9 
@@ -65,7 +67,7 @@ const App = () => {
         />
       </div>
 
-      <p className="font-bold ">Tu IMC es {imc}</p>
+      <p className="font-bold ">Tu IMC es {imcDecimal}</p>
 
       <p className="font-bold text-2xl">Estado de IMC: {imcResult()}</p>
     </section>
