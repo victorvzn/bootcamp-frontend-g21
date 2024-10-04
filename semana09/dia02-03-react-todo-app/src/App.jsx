@@ -90,9 +90,12 @@ const App = () => {
 
       {/* {input} */}
 
+      {/* TODO: RETO1 - Añadir una estadística de cuantas tareas estan completadas y el total de tareas */}
+      {/* TODO: RETO2 - Completar la funcionalidad del botón limpiar tareas */}
+
       <section className="flex justify-between items-center">
         <span className="font-bold">
-          2 de 3
+          2 de {todos.length}
         </span>
         <button
           className="bg-blue-500 text-white rounded-lg px-2 py-1 hover:bg-blue-700 duration-300"
