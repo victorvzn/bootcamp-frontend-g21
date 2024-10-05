@@ -2,6 +2,7 @@ import { useState } from "react"
 
 import TodoHeader from "./components/TodoHeader"
 import TodoForm from "./components/TodoForm"
+import TodoStats from "./components/TodoStats"
 
 const App = () => {
   const DEFAULT_TODOS = [
@@ -56,10 +57,8 @@ const App = () => {
     setTodos(updatedTodos)
   }
 
-  const completedTodos = todos.filter(todo => todo.completed).length
-
   // TODO: RETO2 - Completar la funcionalidad del botón Limpiar completadas
-  const handleClick = (event) => {
+  const handleClearTodos = (event) => {
     const imcompletedTodos = todos.filter(todo => !todo.completed)
     
     setTodos(imcompletedTodos)
@@ -77,17 +76,10 @@ const App = () => {
 
       {/* DONE: RETO1 - Añadir una estadística de cuantas tareas estan completadas y el total de tareas */}
 
-      <section className="flex justify-between items-center">
-        <span className="font-bold">
-          {completedTodos} de {todos.length}
-        </span>
-        <button
-          className="bg-blue-500 text-white rounded-lg px-2 py-1 hover:bg-blue-700 duration-300"
-          onClick={handleClick}
-        >
-          Limpiar completadas
-        </button>
-      </section>
+      <TodoStats
+        todos={todos}
+        onClearTodos={handleClearTodos}
+      />
 
       <section className="mt-4">
         <ul className="flex flex-col gap-2">
