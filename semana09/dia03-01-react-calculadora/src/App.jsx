@@ -9,7 +9,25 @@ const App = () => {
   const handleButton = (event) => {
     const buttonText = event.target.textContent
     
-    
+    if ('+-*'.includes(buttonText)) {
+      setOperador(buttonText)
+      setOperando(Number(numeroActual))
+      setNumeroActual('0')
+    } else if (buttonText === '=') {
+      if (operador === '+') {
+        setNumeroActual(Number(operando) + Number(numeroActual))
+      } else if (operador === '-') {
+        setNumeroActual(Number(operando) - Number(numeroActual))
+      } else if (operador === '*') {
+        setNumeroActual(Number(operando) * Number(numeroActual))
+      }
+    } else if (buttonText === 'AC') {
+      setNumeroActual('0')
+      setOperador('')
+      setOperando('')
+    } else {
+      setNumeroActual(numeroActual + buttonText)
+    }
   }
 
   return (
