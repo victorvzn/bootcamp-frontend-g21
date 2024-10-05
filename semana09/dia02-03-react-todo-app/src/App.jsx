@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 import TodoHeader from "./components/TodoHeader"
+import TodoForm from "./components/TodoForm"
 
 const App = () => {
   const DEFAULT_TODOS = [
@@ -22,27 +23,9 @@ const App = () => {
   ]
 
   const [todos, setTodos] = useState(DEFAULT_TODOS)
-  const [input, setInput] = useState('')
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    
-    console.log('Añadiendo una nueva tarea...')
-
-    const newTodo = {
-      id: crypto.randomUUID(),
-      title: input,
-      completed: false
-    }
-
+  const handleSubmit = (newTodo) => {
     setTodos([...todos, newTodo])
-
-    setInput('')
-  }
-
-  const handleChange = (event) => {
-    // Vamos a capturar lo que escribimos en la caja de texto
-    setInput(event.target.value)
   }
 
   const handleRemoveTodo = (event) => {
@@ -76,7 +59,7 @@ const App = () => {
   const completedTodos = todos.filter(todo => todo.completed).length
 
   // TODO: RETO2 - Completar la funcionalidad del botón Limpiar completadas
-  const handleClick = (event) => {2
+  const handleClick = (event) => {
     const imcompletedTodos = todos.filter(todo => !todo.completed)
     
     setTodos(imcompletedTodos)
@@ -88,16 +71,7 @@ const App = () => {
     >
       <TodoHeader title="TODO APP + React" />
 
-      <form onSubmit={handleSubmit}>
-        <input
-          className="w-full border my-3 p-2 rounded-lg"
-          type="text"
-          placeholder="¿Qué deseas hacer hoy?"
-          required
-          onChange={handleChange}
-          value={input}
-        />
-      </form>
+      <TodoForm onSubmit={handleSubmit} />
 
       {/* {input} */}
 
