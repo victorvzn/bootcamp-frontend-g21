@@ -26,7 +26,7 @@ const App = () => {
       setOperador('')
       setOperando('')
     } else {
-      setNumeroActual(numeroActual + buttonText)
+      setNumeroActual(Number(numeroActual + buttonText))
     }
   }
 
