@@ -77,10 +77,24 @@ const App = () => {
 
       {/* DONE: RETO1 - Añadir una estadística de cuantas tareas estan completadas y el total de tareas */}
 
-      <TodoStats
-        todos={todos}
-        onClearTodos={handleClearTodos}
-      />
+      {/* Renderizado condicional */}
+
+      {
+        todos.length > 0
+        ? (
+          <TodoStats
+            todos={todos}
+            onClearTodos={handleClearTodos}
+          />
+        )
+        : (
+          <div className="text-center font-medium text-gray-500">
+            Agrega más tareas en la parte superior.
+          </div>
+        )
+
+      }
+      
 
       <section className="mt-4">
         <TodoList
