@@ -1,6 +1,6 @@
-const TodoHeader = () => {
+const TodoHeader = ({ title }) => {
   return (
-    <h1 className="text-2xl font-bold text-center">TODO APP</h1>
+    <h1 className="text-2xl font-bold text-center">{title}</h1>
   )
 }
 

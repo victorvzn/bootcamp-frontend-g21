@@ -86,7 +86,7 @@ const App = () => {
     <main
       className="bg-yellow-100 w-full max-w-sm mx-auto mt-10 border border-yellow-400 rounded-lg shadow-lg p-4"
     >
-      <TodoHeader />
+      <TodoHeader title="TODO APP + React" />
 
       <form onSubmit={handleSubmit}>
         <input
