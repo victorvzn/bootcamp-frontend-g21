@@ -22,11 +22,38 @@ const App = () => {
 
   const [students, setStudents] = useState(DEFAULT_STUDENTS)
 
+  const [form, setForm] = useState({
+    id: null,
+    name: '',
+    city: ''
+  })
+
+  const handleSave = (event) => {
+    event.preventDefault();
+
+    const newStudent = {
+      id: crypto.randomUUID(),
+      name: "????",
+      city: '???'
+    }
+    
+    setStudents()
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target // Lo que se escribe en la caja de texto
+
+    setForm({ ...form, [name]: value })
+  }
+
   return (
     <main className="w-96 mx-auto border rounded-lg mt-6 p-3">
       <h1 className="text-2xl text-center">Student List</h1>
 
-      <form className="flex flex-col gap-3 bg-slate-50 p-3 rounded-lg border">
+      <form
+        className="flex flex-col gap-3 bg-slate-50 p-3 rounded-lg border"
+        onSubmit={handleSave}
+      >
         <label className="flex flex-col gap-2">
           <span className="text-sm font-medium text-gray-900">Name</span>
           <input
@@ -34,6 +61,7 @@ const App = () => {
             type="text"
             name="name"
             placeholder="Ex. Victor Villazón"
+            onChange={handleChange}
           />
         </label>
 
@@ -44,6 +72,7 @@ const App = () => {
             type="text"
             name="city"
             placeholder="Ex. Chiclayo"
+            onChange={handleChange}
           />
         </label>
 
@@ -59,6 +88,8 @@ const App = () => {
             value="Limpiar"
           />
         </div>
+
+        <pre>{JSON.stringify(form)}</pre>
       </form>
 
       <div className="student__list mt-3 flex flex-col gap-2">
