@@ -28,15 +28,21 @@ const App = () => {
 
       <div className="student__list mt-3 flex flex-col gap-2">
 
-        <div className="student__row flex justify-between items-center gap-2 bg-slate-50 p-2 rounded-lg border">
-          <Avatar name="Victir" variant="beam" size={48}/>
-          <div className="text-left">NAME</div>
-          <div className="text-left">CIUDAD</div>
-          <div className="flex gap-2">
-            <button>✏</button>
-            <button>❌</button>
-          </div>
-        </div>
+        {/* {JSON.stringify(students)} */}
+
+        {students.map(student => {
+          return (
+            <div key={student.id} className="student__row flex justify-between items-center gap-2 bg-slate-50 p-2 rounded-lg border">
+              <Avatar name={student.name} variant="beam" size={48}/>
+              <div className="text-left">{student.name}</div>
+              <div className="text-left">{student.city}</div>
+              <div className="flex gap-2">
+                <button>✏</button>
+                <button>❌</button>
+              </div>
+            </div>
+          )
+        })}
 
       </div>
     </main>
