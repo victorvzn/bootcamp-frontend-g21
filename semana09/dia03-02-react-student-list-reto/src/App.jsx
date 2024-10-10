@@ -26,6 +26,41 @@ const App = () => {
     <main className="w-96 mx-auto border rounded-lg mt-6 p-3">
       <h1 className="text-2xl text-center">Student List</h1>
 
+      <form className="flex flex-col gap-3 bg-slate-50 p-3 rounded-lg border">
+        <label className="flex flex-col gap-2">
+          <span className="text-sm font-medium text-gray-900">Name</span>
+          <input
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
+            type="text"
+            name="name"
+            placeholder="Ex. Victor Villazón"
+          />
+        </label>
+
+        <label className="flex flex-col gap-2">
+          <span className="text-sm font-medium text-gray-900">City</span>
+          <input
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5"
+            type="text"
+            name="city"
+            placeholder="Ex. Chiclayo"
+          />
+        </label>
+
+        <div className="flex gap-3">
+          <input
+            type="submit"
+            className="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center"
+            value='Save'
+          />
+          <input
+            type="reset"
+            className="text-white bg-gray-700 hover:bg-gray-800 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center"
+            value="Limpiar"
+          />
+        </div>
+      </form>
+
       <div className="student__list mt-3 flex flex-col gap-2">
 
         {/* {JSON.stringify(students)} */}
