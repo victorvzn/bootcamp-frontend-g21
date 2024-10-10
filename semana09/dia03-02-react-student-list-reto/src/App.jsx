@@ -33,11 +33,17 @@ const App = () => {
 
     const newStudent = {
       id: crypto.randomUUID(),
-      name: "????",
-      city: '???'
+      name: form.name,
+      city: form.city
     }
     
-    setStudents()
+    setStudents([ ...students, newStudent ])
+
+    setForm({
+      id: null,
+      name: '',
+      city: ''
+    })
   }
 
   const handleChange = (event) => {
@@ -62,6 +68,7 @@ const App = () => {
             name="name"
             placeholder="Ex. Victor Villazón"
             onChange={handleChange}
+            value={form.name}
           />
         </label>
 
@@ -73,6 +80,7 @@ const App = () => {
             name="city"
             placeholder="Ex. Chiclayo"
             onChange={handleChange}
+            value={form.city}
           />
         </label>
 
