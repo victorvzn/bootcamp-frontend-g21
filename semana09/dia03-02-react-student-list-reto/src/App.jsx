@@ -23,20 +23,21 @@ const App = () => {
   const [students, setStudents] = useState(DEFAULT_STUDENTS)
 
   return (
-    <main className="">
-      <h1 className="text-3xl text-center">Student List</h1>
+    <main className="w-96 mx-auto border rounded-lg mt-6 p-3">
+      <h1 className="text-2xl text-center">Student List</h1>
 
-      <div className="student__list">
-        <div className="student__row">
-          <div>AVATAR</div>
+      <div className="student__list mt-3 flex flex-col gap-2">
+
+        <div className="student__row flex justify-between items-center gap-2 bg-slate-50 p-2 rounded-lg border">
           <Avatar name="Victir" variant="beam" size={48}/>
-          <div>NAME</div>
-          <div>CIUDAD</div>
-          <div>
+          <div className="text-left">NAME</div>
+          <div className="text-left">CIUDAD</div>
+          <div className="flex gap-2">
             <button>✏</button>
             <button>❌</button>
           </div>
         </div>
+
       </div>
     </main>
   )
