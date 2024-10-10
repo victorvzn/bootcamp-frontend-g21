@@ -23,7 +23,7 @@ const App = () => {
   const [students, setStudents] = useState(DEFAULT_STUDENTS)
 
   const [form, setForm] = useState({
-    id: null,
+    id: '',
     name: '',
     city: ''
   })
@@ -31,13 +31,32 @@ const App = () => {
   const handleSave = (event) => {
     event.preventDefault();
 
-    const newStudent = {
-      id: crypto.randomUUID(),
-      name: form.name,
-      city: form.city
+    const isNew = form.id === ''
+
+    if (isNew) {
+      const newStudent = {
+        id: crypto.randomUUID(),
+        name: form.name,
+        city: form.city
+      }
+      
+      setStudents([ ...students, newStudent ])
+    } else {
+      // Update student
+      const updatedStudents = students.map(student => {
+        if (student.id === form.id) {
+          return {
+            ...student,
+            name: form.name,
+            city: form.city
+          }
+        }
+
+        return student
+      })
+
+      setStudents(updatedStudents)
     }
-    
-    setStudents([ ...students, newStudent ])
 
     setForm({
       id: null,
@@ -58,6 +77,16 @@ const App = () => {
     const filteredStudents = students.filter(student => student.id !== id)
 
     setStudents(filteredStudents)
+  }
+
+  const handleUpdate = (id) => {
+    const studentFound = students.find(student => {
+      return student.id === id
+    })
+
+    console.log(studentFound)
+
+    setForm(studentFound)
   }
 
   return (
@@ -119,7 +148,7 @@ const App = () => {
               <div className="text-left">{student.name}</div>
               <div className="text-left">{student.city}</div>
               <div className="flex gap-2">
-                <button>✏</button>
+                <button onClick={() => handleUpdate(student.id)}>✏</button>
                 <button onClick={() => handleRemove(student.id)}>❌</button>
               </div>
             </div>
