@@ -52,6 +52,14 @@ const App = () => {
     setForm({ ...form, [name]: value })
   }
 
+  const handleRemove = (id) => {
+    console.log('Deleting student...', id)
+
+    const filteredStudents = students.filter(student => student.id !== id)
+
+    setStudents(filteredStudents)
+  }
+
   return (
     <main className="w-96 mx-auto border rounded-lg mt-6 p-3">
       <h1 className="text-2xl text-center">Student List</h1>
@@ -112,7 +120,7 @@ const App = () => {
               <div className="text-left">{student.city}</div>
               <div className="flex gap-2">
                 <button>✏</button>
-                <button>❌</button>
+                <button onClick={() => handleRemove(student.id)}>❌</button>
               </div>
             </div>
           )
