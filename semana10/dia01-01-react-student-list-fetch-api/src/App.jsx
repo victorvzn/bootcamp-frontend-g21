@@ -1,5 +1,5 @@
 import Avatar from "boring-avatars";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const App = () => {
   // const DEFAULT_STUDENTS = [
@@ -20,15 +20,29 @@ const App = () => {
   //   }
   // ]
 
-  const [students, setStudents] = useState(
-    JSON.parse(localStorage.getItem('STUDENTS') ?? [])
-  )
+  const [students, setStudents] = useState([])
 
   const [form, setForm] = useState({
     id: '',
     name: '',
     city: ''
   })
+
+  useEffect(() => {
+    const fetchStudents = async () => {
+      const url = 'https://67074c39a0e04071d229b837.mockapi.io/api/v1/students'
+
+      const response = await fetch(url)
+
+      return await response.json()
+    }
+
+    fetchStudents()
+      .then(dataStudents => {
+        setStudents(dataStudents)
+      })
+  }, []) // Se ejecuta el useEffect al cargar el componente la primera vez
+  
 
   const handleSave = (event) => {
     event.preventDefault();
