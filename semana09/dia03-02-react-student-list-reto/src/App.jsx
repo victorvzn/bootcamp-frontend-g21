@@ -2,25 +2,27 @@ import Avatar from "boring-avatars";
 import { useState } from "react";
 
 const App = () => {
-  const DEFAULT_STUDENTS = [
-    {
-      id: "1",
-      name: "Bulma",
-      city: 'Chiclayo'
-    },
-    {
-      id: "2",
-      name: "Goku",
-      city: 'Trujillo'
-    },
-    {
-      id: "3",
-      name: "Vegeta",
-      city: 'Lima'
-    }
-  ]
+  // const DEFAULT_STUDENTS = [
+  //   {
+  //     id: "1",
+  //     name: "Bulma",
+  //     city: 'Chiclayo'
+  //   },
+  //   {
+  //     id: "2",
+  //     name: "Goku",
+  //     city: 'Trujillo'
+  //   },
+  //   {
+  //     id: "3",
+  //     name: "Vegeta",
+  //     city: 'Lima'
+  //   }
+  // ]
 
-  const [students, setStudents] = useState(DEFAULT_STUDENTS)
+  const [students, setStudents] = useState(
+    JSON.parse(localStorage.getItem('STUDENTS') ?? [])
+  )
 
   const [form, setForm] = useState({
     id: '',
@@ -39,8 +41,12 @@ const App = () => {
         name: form.name,
         city: form.city
       }
+
+      const updatedStudents = [ ...students, newStudent ]
       
-      setStudents([ ...students, newStudent ])
+      setStudents(updatedStudents)
+
+      localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
     } else {
       // Update student
       const updatedStudents = students.map(student => {
@@ -56,6 +62,8 @@ const App = () => {
       })
 
       setStudents(updatedStudents)
+
+      localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
     }
 
     setForm({
@@ -74,9 +82,11 @@ const App = () => {
   const handleRemove = (id) => {
     console.log('Deleting student...', id)
 
-    const filteredStudents = students.filter(student => student.id !== id)
+    const updatedStudents = students.filter(student => student.id !== id)
 
-    setStudents(filteredStudents)
+    setStudents(updatedStudents)
+
+    localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
   }
 
   const handleUpdate = (id) => {
