@@ -21,7 +21,7 @@ const App = () => {
   // ]
 
   const [students, setStudents] = useState(
-    JSON.parse(localStorage.getItem('STUDENTS') ?? [])
+    JSON.parse(localStorage.getItem('STUDENTS') ?? '[]')
   )
 
   const [form, setForm] = useState({
