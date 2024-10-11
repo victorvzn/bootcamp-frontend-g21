@@ -109,7 +109,7 @@ const App = () => {
   const handleRemove = (id) => {
     console.log('Deleting student...', id)
 
-    // TODO: enviar una petición para eliinar un estudiante
+    // TODO: enviar una petición para eliminar un estudiante
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
