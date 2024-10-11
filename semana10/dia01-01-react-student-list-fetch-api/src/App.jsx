@@ -2,6 +2,8 @@ import Avatar from "boring-avatars";
 import { useState, useEffect } from "react";
 import { createStudent, fetchStudents, removeStudent, updateStudent } from "./services/students";
 
+import Swal from 'sweetalert2'
+
 const App = () => {
   // const DEFAULT_STUDENTS = [
   //   {
@@ -104,17 +106,32 @@ const App = () => {
     setForm({ ...form, [name]: value })
   }
 
-  const handleRemove = async (id) => {
+  const handleRemove = (id) => {
     console.log('Deleting student...', id)
 
     // TODO: enviar una petición para eliinar un estudiante
-    const res = await removeStudent(id)
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then(async (result) => {
+      // Cuando el usuario presiona el botón Yes
+      if (result.isConfirmed) {
+        const res = await removeStudent(id)
 
-    console.log(res)
+        console.log(res)
 
-    const dataStudents = await fetchStudents()
+        const dataStudents = await fetchStudents()
 
-    setStudents(dataStudents)
+        setStudents(dataStudents)
+      }
+    });
+
+    
 
     // const updatedStudents = students.filter(student => student.id !== id)
 
