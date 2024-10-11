@@ -1,6 +1,6 @@
 import Avatar from "boring-avatars";
 import { useState, useEffect } from "react";
-import { fetchStudents } from "./services/students";
+import { createStudent, fetchStudents } from "./services/students";
 
 const App = () => {
   // const DEFAULT_STUDENTS = [
@@ -40,7 +40,7 @@ const App = () => {
       })
   }, []) // Se ejecuta el useEffect al cargar el componente la primera vez
 
-  const handleSave = (event) => {
+  const handleSave = async (event) => {
     event.preventDefault();
 
     const isNew = form.id === ''
@@ -52,7 +52,13 @@ const App = () => {
         city: form.city
       }
 
+      const res = await createStudent(newStudent)
 
+      console.log(res)
+
+      const dataStudents = await fetchStudents()
+
+      setStudents(dataStudents)
 
       // const updatedStudents = [ ...students, newStudent ]
       // setStudents(updatedStudents)
