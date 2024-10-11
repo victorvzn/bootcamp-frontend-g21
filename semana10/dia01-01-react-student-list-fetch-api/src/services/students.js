@@ -22,3 +22,4 @@ export const createStudent = async (data) => {
 
   return await response.json()
 }
+
