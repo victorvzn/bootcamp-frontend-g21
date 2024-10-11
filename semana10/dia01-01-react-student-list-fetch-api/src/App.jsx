@@ -1,6 +1,6 @@
 import Avatar from "boring-avatars";
 import { useState, useEffect } from "react";
-import { createStudent, fetchStudents } from "./services/students";
+import { createStudent, fetchStudents, updateStudent } from "./services/students";
 
 const App = () => {
   // const DEFAULT_STUDENTS = [
@@ -65,21 +65,30 @@ const App = () => {
       // localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
     } else {
       // Update student
-      const updatedStudents = students.map(student => {
-        if (student.id === form.id) {
-          return {
-            ...student,
-            name: form.name,
-            city: form.city
-          }
-        }
 
-        return student
-      })
+      const res = await updateStudent(form)
 
-      setStudents(updatedStudents)
+      console.log(res)
 
-      localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
+      const dataStudents = await fetchStudents()
+
+      setStudents(dataStudents)
+
+      // const updatedStudents = students.map(student => {
+      //   if (student.id === form.id) {
+      //     return {
+      //       ...student,
+      //       name: form.name,
+      //       city: form.city
+      //     }
+      //   }
+
+      //   return student
+      // })
+
+      // setStudents(updatedStudents)
+
+      // localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
     }
 
     setForm({
