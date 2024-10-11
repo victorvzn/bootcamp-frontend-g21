@@ -67,7 +67,7 @@ const App = () => {
     }
 
     setForm({
-      id: '',
+      id: null,
       name: '',
       city: ''
     })

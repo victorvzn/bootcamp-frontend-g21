@@ -1,5 +1,6 @@
 import Avatar from "boring-avatars";
 import { useState, useEffect } from "react";
+import { fetchStudents } from "./services/students";
 
 const App = () => {
   // const DEFAULT_STUDENTS = [
@@ -28,21 +29,16 @@ const App = () => {
     city: ''
   })
 
+  // Nos ayuda a controlar el ciclo de vida de un componente
+  // CREACIÓN, ACTUALIZACIÓN Y ELMINACIÓN DEL COMPONENTE
   useEffect(() => {
-    const fetchStudents = async () => {
-      const url = 'https://67074c39a0e04071d229b837.mockapi.io/api/v1/students'
-
-      const response = await fetch(url)
-
-      return await response.json()
-    }
-
-    fetchStudents()
+    console.log('useEffect')
+    
+    fetchStudents() // Promise -> .then
       .then(dataStudents => {
         setStudents(dataStudents)
       })
   }, []) // Se ejecuta el useEffect al cargar el componente la primera vez
-  
 
   const handleSave = (event) => {
     event.preventDefault();
@@ -51,16 +47,16 @@ const App = () => {
 
     if (isNew) {
       const newStudent = {
-        id: crypto.randomUUID(),
+        // id: crypto.randomUUID(),
         name: form.name,
         city: form.city
       }
 
-      const updatedStudents = [ ...students, newStudent ]
-      
-      setStudents(updatedStudents)
 
-      localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
+
+      // const updatedStudents = [ ...students, newStudent ]
+      // setStudents(updatedStudents)
+      // localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
     } else {
       // Update student
       const updatedStudents = students.map(student => {
@@ -81,7 +77,7 @@ const App = () => {
     }
 
     setForm({
-      id: null,
+      id: '',
       name: '',
       city: ''
     })
