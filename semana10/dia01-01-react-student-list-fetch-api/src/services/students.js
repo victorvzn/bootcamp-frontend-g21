@@ -41,3 +41,15 @@ export const updateStudent = async (data) => {
 
   return await response.json()
 }
+
+export const removeStudent = async (id) => {
+  const url = `https://67074c39a0e04071d229b837.mockapi.io/api/v1/students/${id}`
+
+  const options = {
+    method: 'DELETE'
+  }
+
+  const response = await fetch(url, options)
+
+  return await response.json()
+}

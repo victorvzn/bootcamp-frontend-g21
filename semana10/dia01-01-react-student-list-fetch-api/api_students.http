@@ -18,3 +18,6 @@ Content-Type: application/json
   "name": "Bulma Test",
   "city": "Chiclayo Test"
 }
+
+### Eliminar un estudiante con su id
+DELETE https://67074c39a0e04071d229b837.mockapi.io/api/v1/students/111

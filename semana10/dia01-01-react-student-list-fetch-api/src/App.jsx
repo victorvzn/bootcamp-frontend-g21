@@ -1,6 +1,6 @@
 import Avatar from "boring-avatars";
 import { useState, useEffect } from "react";
-import { createStudent, fetchStudents, updateStudent } from "./services/students";
+import { createStudent, fetchStudents, removeStudent, updateStudent } from "./services/students";
 
 const App = () => {
   // const DEFAULT_STUDENTS = [
@@ -104,14 +104,23 @@ const App = () => {
     setForm({ ...form, [name]: value })
   }
 
-  const handleRemove = (id) => {
+  const handleRemove = async (id) => {
     console.log('Deleting student...', id)
 
-    const updatedStudents = students.filter(student => student.id !== id)
+    // TODO: enviar una petición para eliinar un estudiante
+    const res = await removeStudent(id)
 
-    setStudents(updatedStudents)
+    console.log(res)
 
-    localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
+    const dataStudents = await fetchStudents()
+
+    setStudents(dataStudents)
+
+    // const updatedStudents = students.filter(student => student.id !== id)
+
+    // setStudents(updatedStudents)
+
+    // localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
   }
 
   const handleUpdate = (id) => {
