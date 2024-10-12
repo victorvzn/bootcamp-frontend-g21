@@ -5,6 +5,7 @@ import AppointmentList from '../components/appointments/AppointmentList'
 
 const Appointments = () => {
   const [appointments, setAppointments] = useState([])
+  const [appointmentSelected, setAppointmentSelected] = useState({})
 
   const handleSaveAppointment = (newAppointment) => {
     console.log('Me estan llamando al guardar el form desde el componente padre', newAppointment)
@@ -22,14 +23,21 @@ const Appointments = () => {
     setAppointments(newAppointments)
   }
 
+  // TODO: Añadir funcionalidad al boton Editar
+  const handleEditAppointment = (appointment) => {
+    setAppointmentSelected(appointment)
+  }
+
   return (
     <>
       <AppointmentForm
         onSave={handleSaveAppointment}
+        appointment={appointmentSelected}
       />
       <AppointmentList
         appointments={appointments}
         onRemove={handleRemoveAppointment}
+        onEdit={handleEditAppointment}
       />
     </>
   )
