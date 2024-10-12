@@ -1,10 +1,18 @@
+import { useState } from 'react'
+
+import AppointmentForm from '../components/appointments/AppointmentForm'
+import AppointmentList from '../components/appointments/AppointmentList'
+
 const Appointments = () => {
+  const [appointments, setAppointments] = useState([])
+
   return (
     <>
-      <div>AppointmentForm</div>
-      <div>AppointmentList</div>
+      <AppointmentForm />
+      <AppointmentList />
     </>
   )
 }
 
+// Exportación por defecto
 export default Appointments
