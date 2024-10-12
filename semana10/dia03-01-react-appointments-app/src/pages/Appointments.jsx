@@ -17,8 +17,9 @@ const Appointments = () => {
       <AppointmentForm
         onSave={handleSaveAppointment}
       />
-      <AppointmentList />
-      <pre>{JSON.stringify(appointments, null, 2)}</pre>
+      <AppointmentList
+        appointments={appointments}
+      />
     </>
   )
 }
