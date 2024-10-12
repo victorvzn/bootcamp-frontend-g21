@@ -18,7 +18,7 @@ const Appointments = () => {
         onSave={handleSaveAppointment}
       />
       <AppointmentList />
-      {JSON.stringify(appointments)}
+      <pre>{JSON.stringify(appointments, null, 2)}</pre>
     </>
   )
 }
