@@ -1,8 +1,14 @@
+import { Header } from "./components/Header"
+
 const App = () => {
   return (
-    <h1 className="text-4xl text-red-600 text-center">
-      App
-    </h1>
+    <>
+      <Header title='Citas médicas para mascotas' />
+
+      <main>
+        citas
+      </main>
+    </>
   )
 }
 
