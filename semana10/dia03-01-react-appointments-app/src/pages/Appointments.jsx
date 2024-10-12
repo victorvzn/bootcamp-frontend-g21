@@ -10,6 +10,8 @@ const Appointments = () => {
   const handleSaveAppointment = (newAppointment) => {
     console.log('Me estan llamando al guardar el form desde el componente padre', newAppointment)
 
+    // TODO: Manejar el guardado de una cita cuando se está editando
+
     setAppointments([...appointments, newAppointment])
   }
 
@@ -23,9 +25,13 @@ const Appointments = () => {
     setAppointments(newAppointments)
   }
 
-  // TODO: Añadir funcionalidad al boton Editar
+  // DONE: Añadir funcionalidad al boton Editar
   const handleEditAppointment = (appointment) => {
     setAppointmentSelected(appointment)
+  }
+
+  const handleConfirmAppointment = (id) => {
+    // TODO: Manejar la confirmación y cancelación de una cita (Esta funcionalidad es libre)
   }
 
   return (
@@ -38,6 +44,7 @@ const Appointments = () => {
         appointments={appointments}
         onRemove={handleRemoveAppointment}
         onEdit={handleEditAppointment}
+        onConfirm={handleConfirmAppointment}
       />
     </>
   )

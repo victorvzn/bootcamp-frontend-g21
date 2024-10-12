@@ -1,4 +1,4 @@
-const AppointmentList = ({ appointments, onRemove, onEdit }) => {
+const AppointmentList = ({ appointments, onRemove, onEdit, onConfirm }) => {
 
   if (appointments.length === 0) {
     return (
@@ -48,7 +48,7 @@ const AppointmentList = ({ appointments, onRemove, onEdit }) => {
                 </div>
               </div>
               <div className="flex flex-col gap-3 mt-3">
-                <button className="p-2 bg-green-600 text-white rounded-lg cursor-pointer">Confirmar cita</button>
+                <button className="p-2 bg-green-600 text-white rounded-lg cursor-pointer" onClick={() => onConfirm(appointment.id)>Confirmar cita</button>
                 <button className="p-2 bg-sky-600 text-white rounded-lg cursor-pointer" onClick={() => onEdit(appointment)}>Editar</button>
                 <button className="p-2 bg-red-600 text-white rounded-lg cursor-pointer" onClick={() => onRemove(appointment.id)}>Eliminar</button>
               </div>
