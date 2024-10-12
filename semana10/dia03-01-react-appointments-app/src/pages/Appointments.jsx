@@ -12,6 +12,16 @@ const Appointments = () => {
     setAppointments([...appointments, newAppointment])
   }
 
+  const handleRemoveAppointment = (id) => {
+    console.log(id)
+
+    const newAppointments = appointments.filter(
+      appointment => appointment.id !== id
+    )
+
+    setAppointments(newAppointments)
+  }
+
   return (
     <>
       <AppointmentForm
@@ -19,6 +29,7 @@ const Appointments = () => {
       />
       <AppointmentList
         appointments={appointments}
+        onRemove={handleRemoveAppointment}
       />
     </>
   )
