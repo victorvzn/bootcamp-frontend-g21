@@ -18,7 +18,7 @@ const CharacterList = () => {
   }, [])
 
   return (
-    <section className="grid grid-cols-4 gap-4 mt-6">
+    <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
       {characters.map(character => {
         return (
           <article
