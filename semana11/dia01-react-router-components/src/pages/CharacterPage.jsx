@@ -1,13 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
-const getCharacter = async (id) => {
-  const URL = `https://dragonball-api.com/api/characters/${id}`
-
-  const response = await fetch(URL)
-
-  return await response.json()
-}
+import { getCharacter } from '../services/characters'
 
 const CharacterPage = () => {
   const { id } = useParams()
