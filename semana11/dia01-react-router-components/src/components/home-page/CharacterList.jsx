@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 const fetchCharacters = async () => {
   const URL = 'https://dragonball-api.com/api/characters'
@@ -21,14 +22,18 @@ const CharacterList = () => {
     <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
       {characters.map(character => {
         return (
-          <article
+          <Link
             key={character.id}
-            className="bg-yellow-300 rounded-lg p-3 flex flex-col justify-center items-center"
+            to={`/characters/${character.id}`}
           >
-            <img src={character.image} width={50} />
-            <div className="font-bold text-3xl text-center mt-2">#{character.id} - {character.name}</div>
-            <div className="font-bold text-center mt-2 bg-orange-300 p-2 uppercase">{character.race}</div>
-          </article>
+            <article
+              className="bg-yellow-300 rounded-lg p-3 flex flex-col justify-center items-center"
+            >
+              <img src={character.image} width={50} />
+              <div className="font-bold text-3xl text-center mt-2">#{character.id} - {character.name}</div>
+              <div className="font-bold text-center mt-2 bg-orange-300 p-2 uppercase">{character.race}</div>
+            </article>
+          </Link>
         )
       })}
 
