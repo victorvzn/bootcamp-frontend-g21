@@ -1,29 +1,36 @@
 const LoginPage = () => {
   return (
-    <main>
-      <div>
-        <h2>Invoice App</h2>
+    <main className="w-[400px] border mx-auto mt-40">
+      <div className="bg-slate-600 p-8 rounded-lg flex flex-col gap-6">
+        <h2 className="text-white text-center text-4xl font-bold">
+          Invoice App
+        </h2>
 
-        <p>Ingresa un nombre de usuario y password.</p>
+        <p className="text-white font-light text-center">
+          Ingresa un nombre de usuario y password.
+        </p>
 
         <form>
-          <label>
-            <span>Username</span>
+          <label className="text-white flex flex-col gap-2 mb-4">
+            <span className="font-bold">Username</span>
             <input
+              className="w-full py-4 px-5 rounded-lg bg-slate-800"
               type="text"
               placeholder="jhondoe"
               name="username"
             />
           </label>
-          <label>
-            <span>Password</span>
+          <label className="text-white flex flex-col gap-2 mb-4">
+            <span className="font-bold">Password</span>
             <input
+              className="w-full py-4 px-5 rounded-lg bg-slate-800"
               type="password"
               placeholder="************"
               name="password"
             />
           </label>
           <input
+            className="rounded-full px-5 py-4 font-bold text-white w-full bg-violet-500 hover:bg-violet-600 duration-300"
             type="submit"
             value='Login'
           />
