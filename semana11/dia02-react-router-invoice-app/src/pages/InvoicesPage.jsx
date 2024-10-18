@@ -25,6 +25,10 @@ const InvoicesPage = () => {
     <>
       <Header title='Invoices' />
 
+      {/* TODO: Implementar el compoennte invoice list con una propiedad invoices */}
+
+      <InvoiceList invoices={invoices} />
+
       {/* <div>{JSON.stringify(invoices)}</div> */}
     </>
   )
