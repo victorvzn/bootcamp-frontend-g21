@@ -30,6 +30,8 @@ const fetchProducts = async () => {
   }
 }
 
+// OAUTH2 -> Github, Google, etc
+
 const HomePage = () => {
   const [products, setProduts] = useState([])
 
