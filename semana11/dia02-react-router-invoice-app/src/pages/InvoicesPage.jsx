@@ -3,6 +3,8 @@
 
 import { useEffect, useState } from "react"
 
+import Header from "../components/Header"
+
 const fetchInvoices = async () => {
   const url = 'https://67074c39a0e04071d229b837.mockapi.io/api/v1/invoices'
 
@@ -20,7 +22,11 @@ const InvoicesPage = () => {
   }, [])
 
   return (
-    <div>{JSON.stringify(invoices)}</div>
+    <>
+      <Header title='Invoices' />
+
+      {/* <div>{JSON.stringify(invoices)}</div> */}
+    </>
   )
 }
 
