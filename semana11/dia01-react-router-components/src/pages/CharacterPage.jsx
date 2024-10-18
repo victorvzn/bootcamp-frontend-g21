@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 
 import { getCharacter } from '../services/characters'
 
 const CharacterPage = () => {
-  const { id } = useParams()
+  const { id } = useParams() // { id: 123 }
+
+  const navigate = useNavigate()
 
   const [character, setCharacter] = useState()
 
@@ -15,7 +17,7 @@ const CharacterPage = () => {
 
   const handleBackHome = () => {
     console.log('handleBackHome clicked')
-    
+    navigate('/')
   }
 
   return (
