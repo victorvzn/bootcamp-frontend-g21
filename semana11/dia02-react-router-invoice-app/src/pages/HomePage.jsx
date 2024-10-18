@@ -1,10 +1,10 @@
-// TODO: listar los productos del siguiente endpoint renderizandolos en esta página
+// DONE: listar los productos del siguiente endpoint renderizandolos en esta página
 // https://dummyjson.com/products
 
 import { useEffect, useState } from "react"
 
 const fetchProducts = async () => {
-  const url = 'https://dummyjson.com/products'
+  const url = 'https://dummyjson.com/auth/products'
 
   const response = await fetch(url)
 
