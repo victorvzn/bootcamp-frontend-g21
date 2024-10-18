@@ -1,4 +1,23 @@
+import { useState } from "react";
+
 const LoginPage = () => {
+  const [form, setForm] = useState({
+    username: '',
+    password: ''
+  })
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    
+    console.log('haciendo login....')
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+
+    setForm({ ...form, [name]: value })
+  }
+
   return (
     <main className="w-[400px] border mx-auto mt-40">
       <div className="bg-slate-600 p-8 rounded-lg flex flex-col gap-6">
@@ -10,7 +29,7 @@ const LoginPage = () => {
           Ingresa un nombre de usuario y password.
         </p>
 
-        <form>
+        <form onSubmit={handleLogin}>
           <label className="text-white flex flex-col gap-2 mb-4">
             <span className="font-bold">Username</span>
             <input
@@ -18,6 +37,7 @@ const LoginPage = () => {
               type="text"
               placeholder="jhondoe"
               name="username"
+              onChange={handleChange}
             />
           </label>
           <label className="text-white flex flex-col gap-2 mb-4">
@@ -27,6 +47,7 @@ const LoginPage = () => {
               type="password"
               placeholder="************"
               name="password"
+              onChange={handleChange}
             />
           </label>
           <input
@@ -34,6 +55,8 @@ const LoginPage = () => {
             type="submit"
             value='Login'
           />
+
+          <pre className="text-white">{JSON.stringify(form)}</pre>
         </form>
       </div>
     </main>
