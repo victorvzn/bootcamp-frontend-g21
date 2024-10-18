@@ -1,6 +1,25 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom'
+
+const login = async(username, password) => {
+  const url = 'https://dummyjson.com/auth/login'
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json' // Mimetype
+    },
+    body: JSON.stringify({ username, password })
+  }
+
+  const response = await fetch(url, options)
+
+  return await response.json()
+}
 
 const LoginPage = () => {
+  const navigate = useNavigate()
+
   const [form, setForm] = useState({
     username: '',
     password: ''
@@ -9,7 +28,15 @@ const LoginPage = () => {
   const handleLogin = async (event) => {
     event.preventDefault();
     
-    console.log('haciendo login....')
+    const res = await login(form.username, form.password)
+
+    if (res) {
+      console.log(res) // TOKEN
+      localStorage.setItem('auth', JSON.stringify(res)) // accessToken
+      navigate('/home')
+    } else {
+      // Mostrar alerta cuando el suaurio no se logueo correctamente
+    }
   }
 
   const handleChange = (event) => {
