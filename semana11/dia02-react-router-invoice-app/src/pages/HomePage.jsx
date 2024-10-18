@@ -4,11 +4,30 @@
 import { useEffect, useState } from "react"
 
 const fetchProducts = async () => {
-  const url = 'https://dummyjson.com/auth/products'
+  try {
 
-  const response = await fetch(url)
+    const url = 'https://dummyjson.com/auth/products'
 
-  return await response.json()
+    const authInfo = JSON.parse(localStorage.getItem('auth'))
+
+    const token = authInfo?.accessToken
+
+    const options = {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    }
+
+    const response = await fetch(url, options)
+
+    if (response.status === 401) {
+      throw new Error('Unauthorized')
+    }
+
+    return await response.json()
+  } catch(err) {
+    console.log(err)
+  }
 }
 
 const HomePage = () => {
