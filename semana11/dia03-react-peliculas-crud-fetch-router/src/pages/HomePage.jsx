@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { TbEdit, TbTrash } from "react-icons/tb";
 
 import { fetchPeliculas } from "../services/peliculas";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const [peliculas, setPeliculas] = useState([])
@@ -50,7 +51,9 @@ const HomePage = () => {
                 </td>
                 <td>
                   <div className="flex gap-0.5">
-                    <button><TbEdit /></button>
+                    <Link to={`/editar/${pelicula.id}`}>
+                      <button><TbEdit /></button>
+                    </Link>
                     <button><TbTrash /></button>
                   </div>
                 </td>
