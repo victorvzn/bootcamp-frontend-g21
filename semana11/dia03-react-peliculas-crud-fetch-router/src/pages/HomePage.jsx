@@ -11,6 +11,8 @@ const HomePage = () => {
       .then(data => setPeliculas(data))
   }, [])
 
+  // TODO: Renderizar las peliculas en la tabla de abajo usando el estado peliculas
+
   return (
     <>
       <table>
