@@ -1,10 +1,13 @@
 import { useState } from "react"
 import { crearPelicula } from "../services/peliculas"
+import { useNavigate } from "react-router-dom"
 
 const NuevaPeliculaPage = () => {
   // DONE: 01 - Manejar el estado del formulario.
   // TODO: 02 - Manejar el envio del formulario al endpoint peliculas mediante un POST para guardar en el endpoint.
   // TODO: 03 - Redirigir a la ruta del listado de peliculas después de guardar una película.
+  const navigate = useNavigate()
+
   const [form, setForm] = useState({
     nombre: '',
     imagen: '',
@@ -26,6 +29,10 @@ const NuevaPeliculaPage = () => {
       .then(data => {
         console.log(data)
         // Redirección a la lista de peliculas
+        navigate('/')
+      })
+      .catch(error => {
+        // Mostrar una alerta con el error
       })
   }
 

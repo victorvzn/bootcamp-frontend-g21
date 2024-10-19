@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 
 const BaseLayout = () => {
   return (
@@ -6,12 +6,16 @@ const BaseLayout = () => {
       <nav className="container-fluid">
         <ul>
           <li>
-            <strong>Peliculas + React Router</strong>
+            <Link to='/'>
+              <strong>Peliculas + React Router</strong>
+            </Link>
           </li>
         </ul>
         <ul>
           <li>
-            <button>Nueva pelicula</button>
+            <Link to='/nuevo'>
+              <button>Nueva pelicula</button>
+            </Link>
           </li>
         </ul>
       </nav>
