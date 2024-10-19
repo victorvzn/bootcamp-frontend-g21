@@ -19,3 +19,25 @@ export const crearPelicula = async (form) => {
 
   return await response.json()
 }
+
+export const obtenerPelicula = async (id) => {
+  const response = await fetch(`${BASE_URL}/peliculas/${id}`)
+
+  return await response.json()
+}
+
+export const editarPelicula = async (form, id) => {
+  const url = `${BASE_URL}/peliculas/${id}`
+
+  const options = {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(form)
+  }
+
+  const response = await fetch(url, options)
+
+  return await response.json()
+}

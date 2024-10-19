@@ -4,6 +4,7 @@ import BaseLayout from './layouts/BaseLayout'
 import HomePage from './pages/HomePage'
 import NuevaPeliculaPage from './pages/NuevaPeliculaPage'
 import EditarPeliculaPage from './pages/EditarPeliculaPage'
+import VerPeliculaPage from './pages/VerPeliculaPage'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           {/* TODO: RUTA PARA RECUPERAR UNA PELICULA */}
           <Route path='/nuevo' element={<NuevaPeliculaPage />} />
           {/* TODO: RUTA PARA CREAR UNA PELICULA */}
+          <Route path='/ver/:id' element={<VerPeliculaPage />} />
           <Route path='/editar/:id' element={<EditarPeliculaPage />} />
           {/* TODO: RUTA PARA EDITAR UNA PELICULA */}
         </Route>

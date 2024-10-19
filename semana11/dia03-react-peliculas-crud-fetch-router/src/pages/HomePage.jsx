@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
-import { TbEdit, TbTrash } from "react-icons/tb";
+import { TbEdit, TbTrash, TbEye } from "react-icons/tb";
 
 import { fetchPeliculas } from "../services/peliculas";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const [peliculas, setPeliculas] = useState([])
+
+  const GENEROS = {
+    1: "Comedia",
+    2: "Acción",
+    3: "Animación",
+    4: "Aventura",
+  }
 
   useEffect(() => {
     fetchPeliculas()
@@ -43,7 +50,7 @@ const HomePage = () => {
                     <strong>Estreno:</strong> {pelicula.estreno}
                   </div>
                   <div className="fs-small">
-                    <strong>Genero:</strong> {pelicula.generoId}
+                    <strong>Genero:</strong> {GENEROS[pelicula.generoId] ?? '-'}
                   </div>
                   <div className="fs-small">
                     <strong>Resumen:</strong> {pelicula.resumen}
@@ -51,6 +58,9 @@ const HomePage = () => {
                 </td>
                 <td>
                   <div className="flex gap-0.5">
+                    <Link to={`/ver/${pelicula.id}`}>
+                      <button><TbEye /></button>
+                    </Link>
                     <Link to={`/editar/${pelicula.id}`}>
                       <button><TbEdit /></button>
                     </Link>
