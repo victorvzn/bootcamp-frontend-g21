@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { crearPelicula } from "../services/peliculas"
 
 const NuevaPeliculaPage = () => {
   // DONE: 01 - Manejar el estado del formulario.
@@ -21,7 +22,11 @@ const NuevaPeliculaPage = () => {
   const handleSave = (event) => {
     event.preventDefault();
     
-    console.log('guardando datos...')
+    crearPelicula(form)
+      .then(data => {
+        console.log(data)
+        // Redirección a la lista de peliculas
+      })
   }
 
   return (

@@ -5,3 +5,17 @@ export const fetchPeliculas = async () => {
 
   return await response.json()
 }
+
+export const crearPelicula = async (form) => {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(form)
+  }
+
+  const response = await fetch(`${BASE_URL}/peliculas`, options)
+
+  return await response.json()
+}
