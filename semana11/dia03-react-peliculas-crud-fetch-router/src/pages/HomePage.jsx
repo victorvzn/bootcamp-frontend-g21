@@ -1,3 +1,5 @@
+import { TbEdit, TbTrash } from "react-icons/tb";
+
 const HomePage = () => {
   return (
     <table>
@@ -33,8 +35,8 @@ const HomePage = () => {
           </td>
           <td>
             <div className="flex gap-0.5">
-              <button>Editar</button>
-              <button>Eliminar</button>
+              <button><TbEdit /></button>
+              <button><TbTrash /></button>
             </div>
           </td>
         </tr>
