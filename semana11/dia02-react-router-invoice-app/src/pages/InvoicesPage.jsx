@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react"
 
 import Header from "../components/Header"
+import InvoiceList from "../components/invoice-page/InvoiceList"
 
 const fetchInvoices = async () => {
   const url = 'https://67074c39a0e04071d229b837.mockapi.io/api/v1/invoices'
