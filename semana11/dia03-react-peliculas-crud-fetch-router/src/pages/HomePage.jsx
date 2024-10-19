@@ -11,7 +11,7 @@ const HomePage = () => {
       .then(data => setPeliculas(data))
   }, [])
 
-  // TODO: Renderizar las peliculas en la tabla de abajo usando el estado peliculas
+  // DONE: Renderizar las peliculas en la tabla de abajo usando el estado peliculas
 
   return (
     <>
@@ -25,34 +25,38 @@ const HomePage = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>
-              <img
-                src='https://placehold.co/100x250'
-                width="100"
-                height="250"
-              />
-            </td>
-            <td>
-              <strong>nombre</strong>
-              <div className="fs-small">
-                <strong>Estreno:</strong> 18/10/24
-              </div>
-              <div className="fs-small">
-                <strong>Genero:</strong> Acción
-              </div>
-              <div className="fs-small">
-                <strong>Resumen:</strong> resumen....
-              </div>
-            </td>
-            <td>
-              <div className="flex gap-0.5">
-                <button><TbEdit /></button>
-                <button><TbTrash /></button>
-              </div>
-            </td>
-          </tr>
+          {peliculas.map(pelicula => {
+            return (
+              <tr key={pelicula.id}>
+                <td>{pelicula.id}</td>
+                <td>
+                  <img
+                    src={pelicula.imagen}
+                    width="100"
+                    height="250"
+                  />
+                </td>
+                <td>
+                  <strong>{pelicula.nombre}</strong>
+                  <div className="fs-small">
+                    <strong>Estreno:</strong> {pelicula.estreno}
+                  </div>
+                  <div className="fs-small">
+                    <strong>Genero:</strong> {pelicula.generoId}
+                  </div>
+                  <div className="fs-small">
+                    <strong>Resumen:</strong> {pelicula.resumen}
+                  </div>
+                </td>
+                <td>
+                  <div className="flex gap-0.5">
+                    <button><TbEdit /></button>
+                    <button><TbTrash /></button>
+                  </div>
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
 
