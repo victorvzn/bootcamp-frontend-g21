@@ -9,6 +9,11 @@ const BaseLayout = () => {
             <strong>Peliculas + React Router</strong>
           </li>
         </ul>
+        <ul>
+          <li>
+            <button>Nueva pelicula</button>
+          </li>
+        </ul>
       </nav>
       <section className="container-fluid">
         <Outlet />
