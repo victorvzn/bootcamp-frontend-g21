@@ -1,4 +1,8 @@
 const NuevaPeliculaPage = () => {
+  // TODO: 01 - Manejar el estado del formulario.
+  // TODO: 02 - Manejar el envio del formulario al endpoint peliculas mediante un POST para guardar en el endpoint.
+  // TODO: 03 - Redirigir a la ruta del listado de peliculas después de guardar una película.
+
   return (
     <form>
       <h2>Nueva película</h2>
