@@ -35,6 +35,7 @@ const EditarPeliculaPage = () => {
   }
 
   const handleSave = (event) => {
+    // evitamos el refresh de la pagina
     event.preventDefault();
     
     editarPelicula(form, id)
