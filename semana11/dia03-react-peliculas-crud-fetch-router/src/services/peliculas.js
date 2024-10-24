@@ -41,3 +41,15 @@ export const editarPelicula = async (form, id) => {
 
   return await response.json()
 }
+
+export const eliminarPelicula = async (id) => {
+  const url = `${BASE_URL}/peliculas/${id}`
+
+  const options = {
+    method: 'DELETE'
+  }
+
+  const response = await fetch(url, options)
+
+  return await response.json()
+}

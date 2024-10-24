@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { TbEdit, TbTrash, TbEye } from "react-icons/tb";
 
-import { fetchPeliculas } from "../services/peliculas";
+import { eliminarPelicula, fetchPeliculas } from "../services/peliculas";
 import { Link } from "react-router-dom";
+
+import Swal from 'sweetalert2'
 
 const HomePage = () => {
   const [peliculas, setPeliculas] = useState([])
@@ -20,6 +22,29 @@ const HomePage = () => {
   }, [])
 
   // DONE: Renderizar las peliculas en la tabla de abajo usando el estado peliculas
+
+  const handleRemove = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        eliminarPelicula(id)
+          .then(() => {
+            
+            fetchPeliculas()
+              .then(data => setPeliculas(data))
+
+              
+          })
+      }
+    });
+  }
 
   return (
     <>
@@ -64,7 +89,12 @@ const HomePage = () => {
                     <Link to={`/editar/${pelicula.id}`}>
                       <button><TbEdit /></button>
                     </Link>
-                    <button><TbTrash /></button>
+                    {/* TODO: Implementar el botón de elimnar película usando una alerta que solicite confirmación al usuario (SweetAlert) */}
+                    <button
+                      onClick={() => handleRemove(pelicula.id)}
+                    >
+                      <TbTrash />
+                    </button>
                   </div>
                 </td>
               </tr>
