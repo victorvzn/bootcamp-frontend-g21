@@ -5,6 +5,7 @@ import { eliminarPelicula, fetchPeliculas } from "../services/peliculas";
 import { Link } from "react-router-dom";
 
 import Swal from 'sweetalert2'
+import { toast } from "sonner";
 
 const HomePage = () => {
   const [peliculas, setPeliculas] = useState([])
@@ -40,7 +41,7 @@ const HomePage = () => {
             fetchPeliculas()
               .then(data => setPeliculas(data))
 
-              
+            toast.success('Pelicula has been deleted')
           })
       }
     });
