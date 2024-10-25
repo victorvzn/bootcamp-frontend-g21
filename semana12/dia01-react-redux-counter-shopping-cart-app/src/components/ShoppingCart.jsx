@@ -16,6 +16,16 @@ const ShoppingCart = () => {
     return acc + subtotal
   }, 0)
 
+  if (cart.length === 0) {
+    return (
+      <section style={{ width: '100%' }}>
+        <h3>Shopping Cart</h3>
+
+        <p style={{ textAlign: 'center' }}>Shopping cart empty!</p>
+      </section>
+    )
+  }
+
   return (
     <section>
       <h3>Shopping Cart</h3>
