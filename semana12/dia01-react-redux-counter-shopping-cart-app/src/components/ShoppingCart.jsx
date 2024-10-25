@@ -1,11 +1,20 @@
 import { useSelector, useDispatch } from "react-redux"
 
 import { clearCart } from "../store/cart"
+import { formatNumber } from "../utils"
 
 const ShoppingCart = () => {
   const cart = useSelector(state => state.cart)
 
   const dispatch = useDispatch()
+
+  const total = cart.reduce((acc, product) => {
+    const qty = product.quantity
+    const price = product.price
+    const subtotal = qty * price
+
+    return acc + subtotal
+  }, 0)
 
   return (
     <section>
@@ -30,10 +39,11 @@ const ShoppingCart = () => {
         })}
       </div>
       
-      {/* TODO: calcular el total de la compra en el carrito */}
+      {/* DONE: calcular el total de la compra en el carrito */}
 
-      <div style={{ paddingTop: '1rem', fontSize: '1.5rem' }}>
-        <strong>TOTAL</strong> <span>S/ 0.00</span>
+      <div style={{ paddingTop: '1rem', fontSize: '1.5rem', display: 'flex', justifyContent: 'space-between' }}>
+        {/* <strong>TOTAL</strong> <span>S/ {total.toFixed(2)}</span> */}
+        <strong>TOTAL</strong> <span>S/ {formatNumber(total)}</span>
       </div>
 
       {/* <pre>{JSON.stringify(cart, null, 2)}</pre> */}
