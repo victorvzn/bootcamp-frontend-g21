@@ -1,6 +1,10 @@
+import Counter from "./components/Counter"
+
 const App = () => {
   return (
-    <div>App</div>
+    <main style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+      <Counter />
+    </main>
   )
 }
 
