@@ -13,10 +13,8 @@ export const useCartStore = create(
       }))
     },
     removeFromCart: (id) => {
-
     },
     cleanCart: () => {
-
     }
   })
 )
