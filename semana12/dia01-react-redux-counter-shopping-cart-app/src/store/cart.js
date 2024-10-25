@@ -45,7 +45,7 @@ export const cartSlice = createSlice({
 
       return state.filter(product => product.id !== productId)
     },
-    clearCart: (state) => {
+    clearCart: () => {
       return []
     }
   }
