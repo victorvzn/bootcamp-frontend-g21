@@ -22,12 +22,21 @@ const ShoppingCart = () => {
           return (
             <button
               key={product.id}
+              style={{ backgroundColor: '#FF8080', border: 'none', cursor: 'pointer', padding: '1rem' }}
             >
-              {product.title} - S/ {product.price}
+              {product.title} - S/ {product.price} (Qty: {product.quantity})
             </button>
           )
         })}
       </div>
+      
+      {/* TODO: calcular el total de la compra en el carrito */}
+
+      <div style={{ paddingTop: '1rem', fontSize: '1.5rem' }}>
+        <strong>TOTAL</strong> <span>S/ 0.00</span>
+      </div>
+
+      {/* <pre>{JSON.stringify(cart, null, 2)}</pre> */}
     </section>
   )
 }
