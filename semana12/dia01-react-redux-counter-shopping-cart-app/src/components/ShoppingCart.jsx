@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux"
 
-import { clearCart } from "../store/cart"
+import { clearCart, removeToCart } from "../store/cart"
 import { formatNumber } from "../utils"
 
 const ShoppingCart = () => {
@@ -32,6 +32,7 @@ const ShoppingCart = () => {
             <button
               key={product.id}
               style={{ backgroundColor: '#FF8080', border: 'none', cursor: 'pointer', padding: '1rem' }}
+              onClick={() => dispatch(removeToCart(product.id))}
             >
               {product.title} - S/ {product.price} (Qty: {product.quantity})
             </button>
