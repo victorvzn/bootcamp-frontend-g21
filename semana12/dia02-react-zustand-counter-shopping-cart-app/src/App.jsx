@@ -1,10 +1,15 @@
 import Counter from "./components/Counter"
+import ProductsPage from "./pages/ProductsPage"
 
 const App = () => {
   return (
-    <main style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-      <Counter />
-    </main>
+    <>
+      <ProductsPage />
+
+      <section style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+        <Counter />
+      </section>
+    </>
   )
 }
 
