@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="bg-lime-600 text-white py-4 px-6 w-full">
       <div className="container mx-auto flex justify-between">
-        <h1 className="font-bold">Shopping Cart (v1.0)</h1>
+        <h1 className="font-bold">Shopping Cart (v1.1)</h1>
 
         <button
           className="text-3xl relative"
