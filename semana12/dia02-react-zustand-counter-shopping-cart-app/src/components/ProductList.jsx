@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react"
 import { fetchProducts } from "../services/products"
+import { useCartStore } from "../store/cart"
 
 const ProductList = () => {
+  const { addToCart } = useCartStore()
+
   const [products, setProducts] = useState([])
 
   useEffect(() => {
@@ -29,7 +32,10 @@ const ProductList = () => {
                 <span className="text-3xl font-bold text-gray-900">
                   S/ {product.price}
                 </span>
-                <button className="bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-3">
+                <button
+                  className="bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-lg text-sm px-5 py-3"
+                  onClick={() => addToCart(product)}
+                >
                   Add to Cart
                 </button>
               </div>

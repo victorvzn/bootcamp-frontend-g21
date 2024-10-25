@@ -7,7 +7,10 @@ export const useCartStore = create(
 
     // Actions
     addToCart: (newProduct) => {
-      
+      // Esta línea se ejecuta cuando el producto es nuevo en el carrito de compras
+      set(state => ({
+        cart: [...state.cart, { ...newProduct, quantity: 1 }]
+      }))
     },
     removeFromCart: (id) => {
 
