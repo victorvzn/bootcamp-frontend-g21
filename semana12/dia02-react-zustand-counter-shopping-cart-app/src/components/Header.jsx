@@ -25,7 +25,6 @@ const Header = () => {
           </div>
         </button>
 
-        
         <div
           className={`${classSidebar} ${classShowCart}`}
         >
