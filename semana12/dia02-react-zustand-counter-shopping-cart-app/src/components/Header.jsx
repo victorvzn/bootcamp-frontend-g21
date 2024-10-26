@@ -6,6 +6,10 @@ const Header = () => {
 
   const [open, setOpen] = useState(false)
 
+  const classSidebar = 'fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-white w-80 text-gray-600'
+
+  const classShowCart = open ? 'translate-none' : 'translate-x-full'
+
   return (
     <header className="bg-lime-600 text-white py-4 px-6 w-full">
       <div className="container mx-auto flex justify-between">
@@ -23,9 +27,19 @@ const Header = () => {
 
         
         <div
-          className={`fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform ${open ? 'translate-none' : 'translate-x-full' } bg-white w-80`}
+          className={`${classSidebar} ${classShowCart}`}
         >
-          CARRITO DE COMPRAS
+          <div className="flex justify-between items-center">
+            <h5 className="text-2xl font-semibold">
+              Cart
+            </h5>
+
+            <button onClick={() => setOpen(false)}>❌</button>
+          </div>
+
+          <div className="my-3">
+            No hay productos en el carrito
+          </div>
           {/* {JSON.stringify(cart)}2 */}
         </div>
       </div>
