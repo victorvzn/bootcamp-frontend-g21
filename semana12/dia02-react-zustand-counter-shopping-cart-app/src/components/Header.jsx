@@ -42,12 +42,14 @@ const Header = () => {
             </div>
           )}
 
+          {/* TODO: Renderizar los productos del carrito de compras en la tabla de abajo */}
+
           { cart.length > 0 && ( 
             <div className="my-3">
             <table className="w-full text-sm text-left text-gray-500">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                   <tr>
-                    <th className="px-6 py-3">Title/Price</th>
+                    <th className="px-6 py-3">Title / Price</th>
                     <th className="px-6 py-3">Qty</th>
                     <th className="px-6 py-3"></th>
                   </tr>
