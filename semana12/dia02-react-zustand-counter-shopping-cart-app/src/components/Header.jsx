@@ -96,14 +96,15 @@ const Header = () => {
                   </tbody>
                 </table>
               </div>
+              
+              {/* DONE: Añadir el total de la compra usando la cantidad y el precio */}
+              <div className="flex justify-between">
+                <span className="text-2xl">TOTAL</span>
+                <span className="text-2xl">S/ {total.toFixed(2)}</span>
+              </div>
             </>
           )}
           
-          {/* DONE: Añadir el total de la compra usando la cantidad y el precio */}
-          <div className="flex justify-between">
-            <span className="text-2xl">TOTAL</span>
-            <span className="text-2xl">S/ {total.toFixed(2)}</span>
-          </div>
           
           {/* {JSON.stringify(cart)}2 */}
         </div>
