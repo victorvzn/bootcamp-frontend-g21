@@ -1,4 +1,4 @@
-import { collection, query, getDocs } from 'firebase/firestore'
+import { collection, query, getDocs, addDoc, doc, deleteDoc } from 'firebase/firestore'
 
 import { db } from '../services/firebase'
 
@@ -23,7 +23,31 @@ export const useHeroes = () => {
     return results
   }
 
+  const createHero = async (hero) => {
+    const newHero = {
+      name: hero.name,
+      image: hero.image
+    }
+
+    const response = await addDoc(reference, newHero)
+
+    return {
+      id: response.id,
+      newHero
+    }
+  }
+
+  const removeHero = async (id) => {
+    const document = doc(db, 'heroes', id )
+
+    const response = await deleteDoc(document)
+
+    return response
+  }
+
   return {
-    fetchHeroes
+    fetchHeroes,
+    createHero,
+    removeHero
   }
 }
