@@ -14,7 +14,13 @@ export const useHeroes = () => {
 
     data.forEach(doc => {
       console.log(doc.id, doc.data())
+      results.push({
+        docId: doc.id,
+        ...doc.data() // Representa el documento actual
+      })
     })
+
+    return results
   }
 
   return {
