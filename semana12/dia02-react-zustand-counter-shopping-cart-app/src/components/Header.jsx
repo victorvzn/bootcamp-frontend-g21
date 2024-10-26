@@ -77,6 +77,9 @@ const Header = () => {
               </table>
             </div>
           )}
+          
+          {/* TODO: Añadir el total de la compra usando la cantidad y el precio */}
+          
           {/* {JSON.stringify(cart)}2 */}
         </div>
       </div>
