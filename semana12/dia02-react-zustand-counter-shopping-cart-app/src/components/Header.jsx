@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useCartStore } from "../store/cart"
+import { TbTrash } from "react-icons/tb";
 
 const Header = () => {
   const { cart } = useCartStore()
@@ -55,15 +56,23 @@ const Header = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="bg-white border-b">
-                    <td className="px-6 py-4">product 1 - S/ 9.00</td>
-                    <td className="px-6 py-4">1</td>
-                    <td className="px-6 py-4">
-                      <button>
-                        🛒
-                      </button>
-                    </td>
-                  </tr>
+                  {cart && cart.map(product => {
+                    return (
+                      <tr className="bg-white border-b" key={product.id}>
+                        <td className="px-6 py-4 font-semibold">
+                          {product.title} - S/ {product.price}
+                        </td>
+                        <td className="px-6 py-4 font-semibold">
+                          {product.quantity}
+                        </td>
+                        <td className="px-6 py-4">
+                          <button>
+                            <TbTrash className="text-red-600" size="1.3rem" />
+                          </button>
+                        </td>
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </table>
             </div>
