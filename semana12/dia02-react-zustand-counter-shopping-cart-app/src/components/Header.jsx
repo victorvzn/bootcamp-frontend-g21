@@ -21,12 +21,13 @@ const Header = () => {
           </div>
         </button>
 
-        { open && (
-          <div>
-            CARRITO DE COMPRAS
-            {/* {JSON.stringify(cart)}2 */}
-          </div>
-        )}
+        
+        <div
+          className={`fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform ${open ? 'translate-none' : 'translate-x-full' } bg-white w-80`}
+        >
+          CARRITO DE COMPRAS
+          {/* {JSON.stringify(cart)}2 */}
+        </div>
       </div>
     </header>
   )
