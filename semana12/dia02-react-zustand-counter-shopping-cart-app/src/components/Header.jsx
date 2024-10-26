@@ -6,7 +6,7 @@ const Header = () => {
 
   const [open, setOpen] = useState(false)
 
-  const classSidebar = 'fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-white w-80 text-gray-600'
+  const classSidebar = 'fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-white w-96 text-gray-600'
 
   const classShowCart = open ? 'translate-none' : 'translate-x-full'
 
@@ -20,7 +20,7 @@ const Header = () => {
           onClick={() => setOpen(!open)}
         >
           🛒
-          <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900">
+          <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2">
             {cart.length}
           </div>
         </button>
@@ -36,9 +36,36 @@ const Header = () => {
             <button onClick={() => setOpen(false)}>❌</button>
           </div>
 
-          <div className="my-3">
-            No hay productos en el carrito
-          </div>
+          { cart.length === 0 && ( 
+            <div className="my-3">
+              No hay productos en el carrito
+            </div>
+          )}
+
+          { cart.length > 0 && ( 
+            <div className="my-3">
+            <table className="w-full text-sm text-left text-gray-500">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                  <tr>
+                    <th className="px-6 py-3">Title/Price</th>
+                    <th className="px-6 py-3">Qty</th>
+                    <th className="px-6 py-3"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-white border-b">
+                    <td className="px-6 py-4">product 1 - S/ 9.00</td>
+                    <td className="px-6 py-4">1</td>
+                    <td className="px-6 py-4">
+                      <button>
+                        🛒
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          )}
           {/* {JSON.stringify(cart)}2 */}
         </div>
       </div>
