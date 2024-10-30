@@ -3,7 +3,7 @@ import { useHeroes } from "../hooks/useHeroes"
 import { Link } from "react-router-dom"
 
 const HomePage = () => {
-  const { fetchHeroes, removeHero } = useHeroes()
+  const { fetchHeroes, removeHero, fetchHeroe } = useHeroes()
 
   const [heroes, setHeroes] = useState([])
 
@@ -17,6 +17,10 @@ const HomePage = () => {
 
     fetchHeroes()
       .then(data => setHeroes(data))
+  }
+
+  const handleGetHero = async (id) => {
+    await fetchHeroe(id)
   }
 
   return (
@@ -44,6 +48,11 @@ const HomePage = () => {
                   className="py-2 px-3 bg-red-600 text-white w-[120px] rounded-lg hover:bg-red-700 duration-300"
                   onClick={() => handleRemove(heroe.docId)}
                 >Remove</button>
+
+                <button
+                  className="py-2 px-3 bg-red-600 text-white w-[120px] rounded-lg hover:bg-red-700 duration-300"
+                  onClick={() => handleGetHero(heroe.docId)}
+                >View</button>
               </div>
             )
           })

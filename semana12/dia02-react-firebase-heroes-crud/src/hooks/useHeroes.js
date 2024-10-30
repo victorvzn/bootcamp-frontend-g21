@@ -1,4 +1,4 @@
-import { collection, query, getDocs, addDoc, doc, deleteDoc } from 'firebase/firestore'
+import { collection, query, getDocs, addDoc, doc, deleteDoc, getDoc } from 'firebase/firestore'
 
 import { db } from '../services/firebase'
 
@@ -13,7 +13,7 @@ export const useHeroes = () => {
     const results = []
 
     data.forEach(doc => {
-      console.log(doc.id, doc.data())
+      // console.log(doc.id, doc.data())
       results.push({
         docId: doc.id,
         ...doc.data() // Representa el documento actual
@@ -21,6 +21,14 @@ export const useHeroes = () => {
     })
 
     return results
+  }
+
+  const fetchHeroe = async(id) => {
+    const document = doc(db, 'heroes', id )
+
+    const docSnap = await getDoc(document);
+
+    console.log(docSnap.data())
   }
 
   const createHero = async (hero) => {
@@ -48,6 +56,7 @@ export const useHeroes = () => {
   return {
     fetchHeroes,
     createHero,
-    removeHero
+    removeHero,
+    fetchHeroe
   }
 }
